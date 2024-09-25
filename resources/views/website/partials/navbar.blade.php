@@ -9,7 +9,7 @@
 
     </div>
     <div class="flex-none md:mr-0 mr-2">
-        @include('website.partials.theme-toggle')
+        {{--  @include('website.partials.theme-toggle')  --}}
         <div class="btn btn-ghost hover:bg-transparent">
             <i class="fa-solid fa-magnifying-glass text-xl"></i>
         </div>
