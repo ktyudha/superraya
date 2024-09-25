@@ -1,6 +1,21 @@
+@font-face {
+    font-family: "Helvetica";
+    src: url("../font/helvetica-255/Helvetica.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
-    --font-primary: system-ui, sans-serif;
-    --font-secondary: serif;
+    --font-default: "Helvetica";
+    --font-primary: "EB Garamond", serif;
+}
+
+body {
+    font-family: var(--font-default);
+}
+
+.font-primary {
+    font-family: var(--font-primary);
 }
 
 .preloader {

@@ -7,61 +7,9 @@
     <meta name="description" content="Halaman Utama Superraya">
 @stop
 
-@section('styles')
-    <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
-@stop
 
 @section('content')
-    {{--  <div class="hero bg-base-200 min-h-screen"
-        style="background-image: url({{ asset('static/website/images/bg-hero.png') }})">
-        <div class="hero-content text-center">
-            <div class="max-w-md">
-                <h1 class="text-5xl font-bold">Hello there</h1>
-                <p class="py-6">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                    quasi. In deleniti eaque aut repudiandae et a id nisi.
-                </p>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
-        </div>
-    </div>  --}}
-
+    {{--  Hero  --}}
     <section id="home" class="mb-16">
         <div class="hero min-h-screen" style="background-image: url({{ asset('static/website/images/bg-hero.png') }})">
             <div class="bg-opacity-60"></div>
@@ -73,11 +21,13 @@
             </div>
         </div>
     </section>
+    {{--  End Hero  --}}
 
+    {{--  About Us  --}}
     <section id="about-us" class=" mb-32">
         <div class="lg:mx-40 mx-4">
             <div class="card-header">
-                <h1 class="md:text-5xl text-3xl font-bold italic">About Us</h1>
+                <h1 class="md:text-5xl text-3xl italic font-primary">About Us</h1>
             </div>
             <div class="my-6">
                 <div class="md:flex flex-none lg:gap-20 gap-6">
@@ -98,7 +48,7 @@
                             Kami memiliki kepercayaan, hanya dengan kerja keras dan ketekunan yang mendalam, kami mampu
                             memberikan yang terbaik untuk konsumen pengguna produk kami.
                         </div>
-                        <h1 class="font-bold md:text-md text-sm">Alfatik Ibnu Maruf</h1>
+                        <h1 class="font-bold lg:text-xl md:text-md text-sm">Alfatik Ibnu Maruf</h1>
                     </div>
                 </div>
                 <div>
@@ -106,10 +56,12 @@
             </div>
         </div>
     </section>
+    {{--  End About Us  --}}
 
+    {{--  Product  --}}
     <section id="products" class="lg:mx-40 mx-4 md:mb-32 mb-16">
         <div class="flex justify-between mb-6">
-            <h1 class="md:text-5xl text-3xl font-bold italic">Products</h1>
+            <h1 class="md:text-5xl text-3xl font-primary italic">Products</h1>
             <a href="" class="hover:underline mt-auto text-end">SEE ALL</a>
         </div>
 
@@ -159,7 +111,9 @@
 
         </div>
     </section>
+    {{--  End Product  --}}
 
+    {{--  Services  --}}
     <section id="services" class="md:mb-32 mb-16">
         <div
             class="hero md:min-h-[70vh] min-h-[80vh] md:bg-[url({{ asset('static/website/images/service/image-services.png') }})] bg-[url({{ asset('static/website/images/service/image-services-mobile.webp') }})]">
@@ -167,7 +121,7 @@
 
         <div class="lg:mx-40 mx-4 mt-9 lg:flex">
             <div class="grid lg:grid-cols-1 grid-cols-2 my-auto lg:w-1/5 w-full md:mb-0 mb-6">
-                <h1 class="md:text-5xl text-3xl font-bold italic lg:mb-2 md:mb-6">Services</h1>
+                <h1 class="md:text-5xl text-3xl font-primary italic lg:mb-2 md:mb-6">Services</h1>
                 <a href="" class="hover:underline my-auto lg:text-start text-end">SEE ALL</a>
             </div>
 
@@ -225,6 +179,7 @@
             </div>
         </div>
     </section>
+    {{--  End Services  --}}
 
 
 
