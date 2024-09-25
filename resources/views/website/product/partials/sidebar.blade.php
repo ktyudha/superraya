@@ -8,10 +8,10 @@
     </div>
 
     <div class="title mb-9">
-        <h1 class="font-primary text-5xl italic">All Products</h1>
+        <h1 class="font-primary lg:text-5xl text-4xl italic">All Products</h1>
     </div>
 
-    <div class="filter">
+    <div class="filter md:contents hidden">
         <div class="sort mb-9">
             <h2 class="uppercase text-sm font-bold mb-2.5">Sort By</h2>
             <ul>
