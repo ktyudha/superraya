@@ -1,7 +1,7 @@
 <nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 lg:px-40 text-white">
     <div class="flex-1 md:ml-0 ml-2">
-        <a class=" text-xl ">SUPERRAYA</a>
-        <ul class="menu menu-horizontal ml-16 gap-16 md:contents hidden">
+        <a class=" text-xl font-bold">SUPERRAYA</a>
+        <ul class="menu menu-horizontal ml-6 gap-6 md:flex hidden text-lg">
             <li><a>Product</a></li>
             <li><a>Service</a></li>
             <li><a>Contact</a></li>
@@ -16,20 +16,37 @@
 
         <div class="drawer">
             <input id="my-drawer" type="checkbox" class="drawer-toggle hi" />
-            <div class="drawer-content md:hidden z-50">
+            <div class="drawer-content md:hidden">
                 <!-- Page content here -->
                 <label for="my-drawer">
-                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-bars text-2xl"></i>
                 </label>
             </div>
             <div class="drawer-side">
-                {{--  <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"> <i
-                        class="fa-solid fa-x"></i></label>  --}}
-                <ul class="menu bg-white z-50 text-base-content h-screen w-full p-4">
+                <ul class="menu bg-white z-50 h-screen text-base-content w-full gap-6 text-4xl font-bold">
+                    <label for="my-drawer" aria-label="close sidebar" class="mt-2 mr-2 ml-auto">
+                        <i class="fa-solid fa-x text-2xl"></i></label>
                     <!-- Sidebar content here -->
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    <li class="mt-6"><a>Products</a></li>
+                    <li><a>Services</a></li>
+                    <li><a>Contact</a></li>
+                    <div class="mt-auto px-4 flex justify-between">
+                        <h1 class="my-auto font-normal text-sm uppercase text-gray-500">CONNECT WITH US</h1>
+                        <div>
+                            <a href="" target="_blank" class="text-slate-900 mx-1">
+                                <i class="fa-brands fa-youtube text-3xl"></i>
+                            </a>
+                            <a href="" target="_blank" class="text-slate-900 mx-1">
+                                <i class="fa-brands fa-tiktok text-3xl"></i>
+                            </a>
+
+                            <a href="" target="_blank" class="text-slate-900 mx-1">
+                                <i class="fa-brands fa-instagram text-3xl"></i>
+                            </a>
+                        </div>
+                    </div>
                 </ul>
+
             </div>
         </div>
 

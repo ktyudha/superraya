@@ -44,5 +44,5 @@ function scrollFunction() {
     }
 }
 
-document.documentElement.setAttribute("data-theme", "light");
+// document.documentElement.setAttribute("data-theme", "light");
 // console.log(window.matchMedia("(prefers-color-scheme: dark)"));
