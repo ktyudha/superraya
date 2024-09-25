@@ -8,7 +8,6 @@
 <body>
     {{--  @include('website.partials.topbar')  --}}
 
-
     @include('website.partials.content')
     {{--  @include('website.partials.footer')
     @include('website.partials.floating-button')

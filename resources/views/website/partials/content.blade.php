@@ -1,4 +1,4 @@
-<div class="body">
+<div class="root">
 
     <div class="preloader">
         <div class="preloader__image" style="background-image: url('{{ asset('static/website/images/logo_hbs.png') }}');">
