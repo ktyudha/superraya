@@ -9,8 +9,9 @@
 
 
 @section('content')
-    <div class="mt-32 lg:mx-40">
+    <div class="md:mt-32 mt-20 lg:mx-40 mx-4">
         @include('website.product.partials.sidebar')
+        @include('website.product.partials.bottom-sheet')
     </div>
 
 @stop
