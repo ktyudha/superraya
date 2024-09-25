@@ -7,6 +7,12 @@
     <meta name="description" content="Halaman Utama Superraya">
 @stop
 
+@section('styles')
+    <style>
+
+    </style>
+@stop
+
 
 @section('content')
     {{--  Hero  --}}
@@ -126,7 +132,7 @@
             </div>
 
             <div class="lg:w-4/5 w-full">
-                <swiper-container id="service-carousel" class="mySwiper md:h-48 h-32" navigation="true">
+                <swiper-container id="service-carousel" class="mySwiper md:h-48 h-32">
                     <swiper-slide class="lg:h-50 md:h-38 h-32">
                         <div class="flex">
                             <img src="{{ asset('static/website/images/product/produk-1.png') }}"
@@ -188,8 +194,30 @@
 @section('scripts')
     <script>
         const swiperEl = document.querySelector('swiper-container')
-        Object.assign(swiperEl, {
+        const params = {
             slidesPerView: 1,
+            loop: true,
+            injectStyles: [
+                `
+          .swiper-button-next,
+          .swiper-button-prev {
+            background-color: white;
+            padding: 8px 16px;
+            border-radius: 100%;
+            border: 2px solid black;
+            color: red;
+          }
+          .swiper-pagination-bullet{
+            width: 40px;
+            height: 40px;
+            background-color: red;
+          }
+      `,
+            ],
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
             breakpoints: {
                 640: {
                     slidesPerView: 1,
@@ -212,7 +240,8 @@
                     spaceBetween: 10,
                 },
             },
-        });
+        }
+        Object.assign(swiperEl, params);
         swiperEl.initialize();
     </script>
 @stop
