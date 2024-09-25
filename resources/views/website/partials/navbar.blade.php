@@ -1,9 +1,9 @@
-<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 lg:px-40 text-white">
+<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 lg:px-40 bg-white text-slate-900">
     <div class="flex-1 md:ml-0 ml-2">
-        <a class=" text-xl font-bold">SUPERRAYA</a>
+        <a class=" text-3xl font-bold" href="{{ route('landing.index') }}">SUPERRAYA</a>
         <ul class="menu menu-horizontal ml-6 gap-6 md:flex hidden text-lg">
-            <li><a>Product</a></li>
-            <li><a>Service</a></li>
+            <li><a href="{{ route('product.index') }}">Product</a></li>
+            <li><a href="{{ route('service.index') }}">Service</a></li>
             <li><a>Contact</a></li>
         </ul>
 
@@ -27,8 +27,8 @@
                     <label for="my-drawer" aria-label="close sidebar" class="mt-2 mr-2 ml-auto">
                         <i class="fa-solid fa-x text-2xl"></i></label>
                     <!-- Sidebar content here -->
-                    <li class="mt-6"><a>Products</a></li>
-                    <li><a>Services</a></li>
+                    <li><a href="{{ route('product.index') }}">Products</a></li>
+                    <li><a href="{{ route('service.index') }}">Services</a></li>
                     <li><a>Contact</a></li>
                     <div class="mt-auto px-4 flex justify-between">
                         <h1 class="my-auto font-normal text-sm uppercase text-gray-500">CONNECT WITH US</h1>

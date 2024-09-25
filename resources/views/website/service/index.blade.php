@@ -7,7 +7,11 @@
     <meta name="description" content="Halaman Utama Superraya">
 @stop
 
+@section('styles')
+    <style>
 
+    </style>
+@stop
 
 
 @section('content')
@@ -188,30 +192,6 @@
 @stop
 
 @section('scripts')
-    <script type="text/javascript">
-        const navbar = document.getElementById("navbar");
-        navbar.classList.add("text-white");
-        navbar.classList.add("bg-transparent");
-
-        window.onscroll = function() {
-            scrollFunction();
-        };
-
-        function scrollFunction() {
-
-            if (window.scrollY > 20) {
-                navbar.classList.add("bg-white");
-                navbar.classList.add("text-slate-900");
-                navbar.classList.remove("text-white");
-                navbar.classList.remove("bg-transparent");
-            } else {
-                navbar.classList.remove("bg-white");
-                navbar.classList.remove("text-slate-900");
-                navbar.classList.add("bg-transparent");
-                navbar.classList.add("text-white");
-            }
-        }
-    </script>
     <script>
         const swiperEl = document.querySelector('swiper-container')
         const params = {
