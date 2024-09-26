@@ -11,7 +11,7 @@
         <div class="drawer-side">
             <ul
                 class="menu [&_li>*]:rounded-none bg-white z-50 h-screen text-base-content w-full gap-6 text-4xl font-bold">
-                <div class="flex ml-2">
+                <div class="flex ml-2 mt-16">
                     <h3 class="mt-2 mr-auto font-normal text-2xl uppercase">SORT</h3>
                     <label for="my-drawer-2" aria-label="close sidebar" class="mt-2 mr-2 ml-auto">
                         <i class="fa-solid fa-x text-2xl"></i></label>
@@ -38,7 +38,7 @@
         <div class="drawer-side">
             <ul
                 class="menu [&_li>*]:rounded-none bg-white z-50 h-screen text-base-content w-full gap-6 text-4xl font-bold">
-                <div class="flex ml-2">
+                <div class="flex ml-2 mt-16">
                     <h3 class="mt-2 mr-auto font-normal text-2xl uppercase">Filter</h3>
                     <label for="my-drawer-3" aria-label="close sidebar" class="mt-2 mr-2 ml-auto">
                         <i class="fa-solid fa-x text-2xl"></i></label>

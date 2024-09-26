@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar fixed top-0 left-0 right-0  lg:px-40 bg-white text-slate-900">
+<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-10 lg:px-40 bg-white text-slate-900">
     <div class="flex-1 md:ml-0 ml-2">
         <a class=" text-3xl font-bold" href="{{ route('landing.index') }}">SUPERRAYA</a>
         <ul class="ml-16 gap-16 md:flex hidden text-lg">
@@ -31,7 +31,7 @@
                     </li>
                     <li><a href="{{ route('service.index') }}">Services</a></li>
                     <li><a>Contact</a></li>
-                    <div class="mt-auto pb-20 px-4 flex justify-between">
+                    <div class="mt-auto px-4 flex justify-between">
                         <h1 class="my-auto font-normal text-sm uppercase text-gray-500">CONNECT WITH US</h1>
                         <div>
                             <a href="" target="_blank" class="text-slate-900 mx-1">
