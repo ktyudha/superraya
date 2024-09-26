@@ -11,7 +11,7 @@
         <h1 class="font-primary lg:text-5xl text-4xl italic">All Products</h1>
     </div>
 
-    <div class="filter md:contents hidden">
+    <div class="filter md:block hidden">
         <div class="sort mb-9">
             <h2 class="uppercase text-sm font-bold mb-2.5">Sort By</h2>
             <ul>

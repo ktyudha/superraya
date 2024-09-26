@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 lg:px-40 bg-white text-slate-900">
+<nav id="navbar" class="navbar fixed top-0 left-0 right-0  lg:px-40 bg-white text-slate-900">
     <div class="flex-1 md:ml-0 ml-2">
         <a class=" text-3xl font-bold" href="{{ route('landing.index') }}">SUPERRAYA</a>
         <ul class="ml-16 gap-16 md:flex hidden text-lg">
@@ -17,14 +17,13 @@
         <div class="drawer">
             <input id="my-drawer" type="checkbox" class="drawer-toggle hi" />
             <div class="drawer-content md:hidden">
-                <!-- Page content here -->
                 <label for="my-drawer">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </label>
             </div>
             <div class="drawer-side">
                 <ul
-                    class="menu [&_li>*]:rounded-none bg-white z-50 h-screen text-base-content w-full gap-6 text-4xl font-bold">
+                    class="menu [&_li>*]:rounded-none bg-white z-[999] h-screen text-base-content w-full gap-6 text-4xl font-bold">
                     <label for="my-drawer" aria-label="close sidebar" class="mt-2 mr-2 ml-auto">
                         <i class="fa-solid fa-x text-2xl"></i></label>
                     <!-- Sidebar content here -->
@@ -32,7 +31,7 @@
                     </li>
                     <li><a href="{{ route('service.index') }}">Services</a></li>
                     <li><a>Contact</a></li>
-                    <div class="mt-auto px-4 flex justify-between">
+                    <div class="mt-auto pb-20 px-4 flex justify-between">
                         <h1 class="my-auto font-normal text-sm uppercase text-gray-500">CONNECT WITH US</h1>
                         <div>
                             <a href="" target="_blank" class="text-slate-900 mx-1">
@@ -48,9 +47,7 @@
                         </div>
                     </div>
                 </ul>
-
             </div>
         </div>
-
     </div>
 </nav>
