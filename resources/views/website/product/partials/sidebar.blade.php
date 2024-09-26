@@ -1,4 +1,4 @@
-<div class="sidebar min-h-screen">
+<div class="sidebar">
     <div class="breadcrumb text-base mb-5">
         <ul class="flex gap-2">
             <li><a>Home</a></li>
@@ -7,11 +7,11 @@
         </ul>
     </div>
 
-    <div class="title mb-9">
+    <div class="title md:mb-9">
         <h1 class="font-primary lg:text-5xl text-4xl italic">All Products</h1>
     </div>
 
-    <div class="filter md:block hidden">
+    <div class="filter lg:block hidden">
         <div class="sort mb-9">
             <h2 class="uppercase text-sm font-bold mb-2.5">Sort By</h2>
             <ul>
