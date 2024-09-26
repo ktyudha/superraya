@@ -14,12 +14,27 @@
     {{--  Hero  --}}
     <section id="home" class="mb-16">
         <div class="hero min-h-screen" style="background-image: url({{ asset('static/website/images/bg-hero.png') }})">
-            <div class="bg-opacity-60"></div>
+            <div class="bg-opacity-60 bg-blur"></div>
             <div class="hero-content text-neutral-content text-center">
-                <div class="max-w-md">
+                <div class="max-w-lg">
                     <img src="{{ asset('static/website/images/logo_hbs.png') }}" alt=""
                         class="lg:w-full w-4/5 mx-auto" />
                 </div>
+            </div>
+            <div class="group absolute bottom-6 md:left-40 left-4 p-2 items-end justify-end">
+                <p class="text-white mb-3 uppercase">EXPLORE ALL PRODUCTS</p>
+                <a href="{{ route('product.index') }}"
+                    class="btn btn-oval bg-transparent hover:bg-transparent hover:drop-shadow-2xl text-white text-lg">
+                    <span class="font-primary font-normal ">Check Now</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="md:block hidden group absolute bottom-20 md:right-[90px] rotate-90 right-6  items-end justify-end ">
+                <div class="flex ">
+                    <p class="text-white uppercase">SCROLL FOR MORE</p>
+                    <hr class="my-auto w-8 ml-1">
+                </div>
+
             </div>
         </div>
     </section>
@@ -191,7 +206,7 @@
     <script type="text/javascript">
         const navbar = document.getElementById("navbar");
         navbar.classList.add("text-white");
-        navbar.classList.add("bg-transparent");
+        navbar.classList.remove("bg-white");
 
         window.onscroll = function() {
             scrollFunction();
