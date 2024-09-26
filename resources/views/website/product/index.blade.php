@@ -11,7 +11,7 @@
 @section('content')
     <div class="md:mt-32 mt-20 lg:mx-40 mx-4">
         @include('website.product.partials.sidebar')
-        @include('website.product.partials.bottom-sheet')
     </div>
+    @include('website.product.partials.bottom-sheet')
 
 @stop

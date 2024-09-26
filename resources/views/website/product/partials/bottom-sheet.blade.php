@@ -1,32 +1,83 @@
-<div class="btm-nav md:hidden">
-    <button class="bg-white border border-gray-300">
-        {{--  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>  --}}
-        <span class="btm-nav-label uppercase text-xs">SORT</span>
-    </button>
-    <button class="bg-white border border-gray-300">
-        {{--  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>  --}}
-        <span class="btm-nav-label uppercase text-xs">FILTER</span>
-    </button>
-</div>
+<div class="fixed bottom-0 bg-white w-full md:hidden grid grid-cols-2">
+    <div class="bg-gray-100 border border-slate-900 flex-row gap-3 p-4">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle hi" />
+        <div class="drawer-content md:hidden">
+            <label for="my-drawer-2">
+                <i class="fa-solid fa-sort text-xl"></i>
+                <span class="btm-nav-label uppercase text-sm">SORT</span>
+            </label>
+        </div>
 
-{{--  <div class="drawer drawer-end">
-    <input id="my-filter" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content">
-        <!-- Page content here -->
-        <label for="my-filter" class="drawer-button btn btn-primary">Open drawer</label>
+        <div class="drawer-side">
+            <ul
+                class="menu [&_li>*]:rounded-none bg-white z-50 h-screen text-base-content w-full gap-6 text-4xl font-bold">
+                <div class="flex ml-2">
+                    <h3 class="mt-2 mr-auto font-normal text-2xl uppercase">SORT</h3>
+                    <label for="my-drawer-2" aria-label="close sidebar" class="mt-2 mr-2 ml-auto">
+                        <i class="fa-solid fa-x text-2xl"></i></label>
+                </div>
+                <div class="text-sm">
+                    <h2 class="uppercase text-sm font-bold ml-2">Sort By</h2>
+                    <ul class="menu [&_li>*]:p-0 font-normal">
+                        <li class="hover:underline"><a href="">Latest Arrival</a></li>
+                        <li class="hover:underline"><a href="">Popular</a></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
     </div>
-    <div class="drawer-side">
-        <label for="my-filter" aria-label="close sidebar" class="drawer-overlay"></label>
-        <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-            <!-- Sidebar content here -->
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
-        </ul>
+    <div class="bg-gray-100 border border-slate-900 flex-row gap-3 p-4">
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle hi" />
+        <div class="drawer-content md:hidden">
+            <label for="my-drawer-3">
+                <i class="fa-solid fa-filter text-xl"></i>
+                <span class="btm-nav-label uppercase text-xs">FILTER</span>
+            </label>
+        </div>
+
+        <div class="drawer-side">
+            <ul
+                class="menu [&_li>*]:rounded-none bg-white z-50 h-screen text-base-content w-full gap-6 text-4xl font-bold">
+                <div class="flex ml-2">
+                    <h3 class="mt-2 mr-auto font-normal text-2xl uppercase">Filter</h3>
+                    <label for="my-drawer-3" aria-label="close sidebar" class="mt-2 mr-2 ml-auto">
+                        <i class="fa-solid fa-x text-2xl"></i></label>
+                </div>
+                <div class="text-sm">
+                    <h2 class="uppercase text-sm font-bold ml-2">Categories</h2>
+                    <ul class="menu [&_li>*]:p-0 font-normal">
+                        <li class="hover:underline"><a href="">Industri</a></li>
+                        <li class="hover:underline"><a href="">Pertanian</a></li>
+                        <li class="hover:underline"><a href="">Peternakan</a></li>
+                        <li class="hover:underline"><a href="">Pangan</a></li>
+                    </ul>
+                </div>
+
+                <div class="text-sm">
+                    <h2 class="uppercase text-sm font-bold ml-2">Best Seller</h2>
+                    <ul class="menu [&_li>*]:p-0 font-normal">
+                        <li class="hover:underline"><a href="">Mesin Press Kardus</a></li>
+                        <li class="hover:underline"><a href="">Mesin Penggoreng Singkong</a></li>
+                        <li class="hover:underline"><a href="">Mesin Penimpil Jagung</a></li>
+                    </ul>
+                </div>
+                {{--  <div class="mt-auto px-4 flex justify-between">
+
+                    <h1 class="my-auto font-normal text-sm uppercase text-gray-500">CONNECT WITH US</h1>
+                    <div>
+                        <a href="" target="_blank" class="text-slate-900 mx-1">
+                            <i class="fa-brands fa-youtube text-3xl"></i>
+                        </a>
+                        <a href="" target="_blank" class="text-slate-900 mx-1">
+                            <i class="fa-brands fa-tiktok text-3xl"></i>
+                        </a>
+
+                        <a href="" target="_blank" class="text-slate-900 mx-1">
+                            <i class="fa-brands fa-instagram text-3xl"></i>
+                        </a>
+                    </div>
+                </div>  --}}
+            </ul>
+        </div>
     </div>
-</div>  --}}
+</div>

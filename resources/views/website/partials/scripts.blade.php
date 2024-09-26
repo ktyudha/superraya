@@ -8,6 +8,7 @@
 
 
 
+
 <script src="{{ asset('static/website/js/script.js') }}"></script>
 
 {{--  <script>
