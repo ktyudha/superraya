@@ -24,5 +24,10 @@ $(window).on("load", function () {
     // }
 });
 
-document.documentElement.setAttribute("data-theme", "light");
+if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
+    document.documentElement.setAttribute("data-theme", "light");
+}
 // console.log(window.matchMedia("(prefers-color-scheme: dark)"));
