@@ -1,7 +1,7 @@
-<div class="fixed bottom-0 bg-white w-full md:hidden grid grid-cols-2">
+<div class="fixed bottom-0 bg-white w-full lg:hidden grid grid-cols-2">
     <div class="bg-gray-100 border border-slate-900 flex-row gap-3 p-4">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle hi" />
-        <div class="drawer-content md:hidden">
+        <div class="drawer-content lg:hidden">
             <label for="my-drawer-2">
                 <i class="fa-solid fa-sort text-xl"></i>
                 <span class="btm-nav-label uppercase text-sm">SORT</span>
@@ -28,7 +28,7 @@
     </div>
     <div class="bg-gray-100 border border-slate-900 flex-row gap-3 p-4">
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle hi" />
-        <div class="drawer-content md:hidden">
+        <div class="drawer-content lg:hidden">
             <label for="my-drawer-3">
                 <i class="fa-solid fa-filter text-xl"></i>
                 <span class="btm-nav-label uppercase text-xs">FILTER</span>

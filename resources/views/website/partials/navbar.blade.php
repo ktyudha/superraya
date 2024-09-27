@@ -4,7 +4,7 @@
         <ul class="ml-16 gap-16 lg:flex hidden text-lg">
             <li><a href="{{ route('product.index') }}">Product</a></li>
             <li><a href="{{ route('service.index') }}">Service</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="{{ route('contact.index') }}">Contact</a></li>
         </ul>
 
     </div>
@@ -30,7 +30,7 @@
                     <li><a href="{{ route('product.index') }}">Products</a>
                     </li>
                     <li><a href="{{ route('service.index') }}">Services</a></li>
-                    <li><a>Contact</a></li>
+                    <li><a href="{{ route('contact.index') }}">Contact</a></li>
                     <div class="mt-auto px-4 flex justify-between">
                         <h1 class="my-auto font-normal text-sm uppercase text-gray-500">CONNECT WITH US</h1>
                         <div>
