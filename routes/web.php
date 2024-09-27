@@ -8,6 +8,7 @@ use App\Http\Controllers\Website\Service\ServiceController;
 
 Route::get('/', [HomeController::class, 'index'])->name('landing.index');
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
 
 Route::get('/dashboard', function () {

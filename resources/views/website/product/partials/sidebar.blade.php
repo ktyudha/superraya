@@ -1,9 +1,9 @@
 <div class="sidebar">
-    <div class="breadcrumb text-base mb-5">
+    <div class="breadcrumb text-base lg:mb-12 lg:block hidden">
         <ul class="flex gap-2">
-            <li><a>Home</a></li>
+            <li class="hover:underline"><a href="{{ route('landing.index') }}">Home</a></li>
             <span>/</span>
-            <li><a>Product</a></li>
+            <li class="hover:underline"><a href="{{ route('product.index') }}">Product</a></li>
         </ul>
     </div>
 
