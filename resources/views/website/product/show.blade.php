@@ -8,7 +8,7 @@
 @stop
 
 @section('styles')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     {{--  <style>
         .col-middle {
             overflow-y: scroll;
@@ -218,7 +218,6 @@
 @stop
 
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 2,

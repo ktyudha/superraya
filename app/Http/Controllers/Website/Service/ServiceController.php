@@ -11,4 +11,9 @@ class ServiceController extends Controller
     {
         return view('website.service.index');
     }
+
+    public function show(string $id)
+    {
+        return view('website.service.show');
+    }
 }
