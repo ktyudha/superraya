@@ -1,0 +1,84 @@
+@extends('website.layout')
+
+@section('title', 'SUPERRAYA™')
+
+@section('metadata')
+    <meta name="title" content="Super Raya">
+    <meta name="description" content="Halaman Utama Superraya">
+@stop
+
+
+@section('content')
+
+    <div class="w-full mt-20">
+        <iframe class="w-full h-1/2"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.461650015716!2d112.54941697568583!3d-7.52451899248848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7875ebc516172b%3A0xba30d6d6d15f63d5!2sBengkel%20Super%20Raya!5e0!3m2!1sid!2sid!4v1727423558357!5m2!1sid!2sid"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    {{--  Form  --}}
+    <div class="lg:mt-20 mt-6 lg:mx-40 mx-4 mb-16">
+        <div class="grid lg:grid-cols-2 grid-cols-1">
+            <div class="mb-6">
+                <h1 class="md:text-5xl text-3xl font-primary italic lg:mb-2 md:mb-6 mb-6">Contact</h1>
+                <p class="mb-3">FHG2+5QX, Mojosulur, Kec. Mojosari, Kabupaten Mojokerto, Jawa Timur 61382</p>
+                <p>E-mail: sales.superraya@gmail.com</p>
+                <p>Telephone: 0858 4825 0548</p>
+            </div>
+
+            <form class="w-full mx-auto">
+                <p class="mb-4">Having trouble or any feedback?<br> Send us a message:</p>
+
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-5 group">
+                        <input type="text" name="floating_first_name" id="floating_first_name"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
+                            placeholder=" " required />
+                        <label for="floating_first_name"
+                            class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First
+                            name</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-5 group">
+                        <input type="text" name="floating_last_name" id="floating_last_name"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
+                            placeholder=" " required />
+                        <label for="floating_last_name"
+                            class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last
+                            name</label>
+                    </div>
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="email" name="floating_email" id="floating_email"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
+                        placeholder=" " required />
+                    <label for="floating_email"
+                        class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
+                    </label>
+                </div>
+
+                <div class="relative z-0 w-full mb-5 group">
+                    <label for="topic" class="sr-only">Topic</label>
+                    <select id="topic" name="topic"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                        required>
+                        <option selected>Topic</option>
+                        <option value="General Inquires">General Inquires</option>
+                        <option value="My Order">My Order</option>
+                        <option value="Request for Collaboration">Request for Collaboration</option>
+                    </select>
+                </div>
+
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="text" name="floating_message" id="floating_message"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
+                        placeholder=" " required />
+                    <label for="floating_message"
+                        class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
+                </div>
+                <button type="submit" class="w-full bg-slate-900 py-4 text-white">Send Message</button>
+            </form>
+        </div>
+    </div>
+    {{--  End Form  --}}
+
+@stop
