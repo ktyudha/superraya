@@ -9,11 +9,9 @@
 
 @section('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <style>
+    {{--  <style>
         .col-middle {
             overflow-y: scroll;
-            height: 100vh;
-            padding-right: 10px;
             scrollbar-width: none;
         }
 
@@ -24,7 +22,7 @@
         .col-middle {
             scroll-behavior: smooth;
         }
-    </style>
+    </style>  --}}
 @endsection
 
 
@@ -40,7 +38,8 @@
                     <li><a>Mesin Press Kardus</a></li>
                 </ul>
             </div>
-            <div class="grid lg:grid-cols-12 grid-cols-1 lg:gap-6">
+            <div class="grid lg:grid-cols-12 grid-cols-1 lg:gap-6 test">
+
                 <div class="lg:col-span-6 lg:mx-5 order-1 md:order-2 mb-16">
                     <div class="lg:hidden">
                         <div class="swiper detailProduct md:h-full">
@@ -63,7 +62,8 @@
                             <div class="swiper-pagination"></div>
                         </div>
                     </div>
-                    <div class="col-middle hidden lg:block">
+
+                    <div class="col-middle min-h-screen hidden lg:block">
                         <div class="image ratio r-1-1 ">
                             <div class="outer-content">
                                 <div class="inner-content"><img
@@ -87,7 +87,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="lg:col-span-3 sidebar order-2 lg:order-1 mb-12">
                     <div class="title">
                         <h1 class="md:text-2xl text-lg uppercase font-bold lg:mb-8 mb-3">MESIN PRESS KARDUS</h1>
