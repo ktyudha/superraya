@@ -1,7 +1,7 @@
 <nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-10 lg:px-40 bg-white text-slate-900">
     <div class="flex-1 md:ml-0 ml-2">
         <a class=" text-3xl font-bold" href="{{ route('landing.index') }}">SUPERRAYA</a>
-        <ul class="ml-16 gap-16 md:flex hidden text-lg">
+        <ul class="ml-16 gap-16 lg:flex hidden text-lg">
             <li><a href="{{ route('product.index') }}">Product</a></li>
             <li><a href="{{ route('service.index') }}">Service</a></li>
             <li><a>Contact</a></li>
@@ -16,7 +16,7 @@
 
         <div class="drawer">
             <input id="my-drawer" type="checkbox" class="drawer-toggle hi" />
-            <div class="drawer-content md:hidden">
+            <div class="drawer-content lg:hidden">
                 <label for="my-drawer">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </label>

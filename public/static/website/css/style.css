@@ -54,42 +54,6 @@ body {
     height: 100%;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    top: 50%; /* Mengatur posisi vertikal */
-    width: 30px; /* Lebar tombol */
-    height: 30px; /* Tinggi tombol */
-    color: #fff; /* Warna tombol (ikon panah) */
-    background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang tombol */
-    border-radius: 50%; /* Membuat tombol menjadi bulat */
-    z-index: 10; /* Agar tombol di atas konten slider */
-    margin-top: -15px; /* Menyeimbangkan tombol ke tengah vertikal */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Animasi perubahan warna latar belakang */
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Perubahan warna pada saat hover */
-}
-
-.swiper-button-prev,
-.swiper-rtl .swiper-button-next {
-    left: var(--swiper-navigation-sides-offset, 10px) !important;
-    right: auto !important;
-    background-color: black;
-    border-radius: 100%;
-    padding: 5px 15px;
-    color: white !important;
-}
-
-.swiper-button-next {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%234c71ae'%2F%3E%3C%2Fsvg%3E") !important;
-}
-
 /* .btn-oval,
 .btn-oval-dark {
     padding-left: 2rem;
@@ -112,4 +76,25 @@ body {
     justify-content: center;
     grid-gap: 0.25rem;
     gap: 0.25rem;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: black !important;
+    font-weight: bold !important;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: black !important;
+}
+
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
+.swiper-vertical
+    > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+    top: auto !important;
+    bottom: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: black !important;
 }
