@@ -1,5 +1,5 @@
 {{--  Vite  --}}
-@vite(['resources/css/app.css', 'resources/js/app.js', 'public/static/admin/js/index.js'])
+@vite(['resources/css/app.css', 'resources/js/app.js', asset('static/admin/js/index.js')])
 
 
 
