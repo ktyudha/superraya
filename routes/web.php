@@ -1,11 +1,17 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Website\Contact\ContactController;
 use App\Http\Controllers\Website\Home\HomeController;
 use App\Http\Controllers\Website\Product\ProductController;
 use App\Http\Controllers\Website\Service\ServiceController;
+
+
+// if ($this->app->environment('production')) {
+//     \URL::forceScheme('https');
+// }
 
 Route::get('/', [HomeController::class, 'index'])->name('landing.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
@@ -17,14 +23,16 @@ Route::get('/services', [ServiceController::class, 'index'])->name('service.inde
 Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-require __DIR__ . '/auth.php';
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
+require __DIR__ . '/admin.php';
