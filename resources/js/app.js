@@ -1,4 +1,5 @@
 import "./bootstrap";
+import "/public/static/admin/js/index.js";
 
 import Alpine from "alpinejs";
 import persist from "@alpinejs/persist";
