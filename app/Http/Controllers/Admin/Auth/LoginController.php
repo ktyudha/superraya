@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Setting;
-use App\User;
-use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Auth\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -17,37 +16,19 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
-    public function store(Request $request)
+    public function store(LoginRequest $request): RedirectResponse
     {
-        $this->validate($request, [
-            'username' => 'required',
-            'password' => 'required'
-        ]);
+        $request->authenticate();
 
-        $credentials = [
-            'username' => $request->username,
-            'password' => $request->password
-        ];
-        $remember = $request->remember;
+        $request->session()->regenerate();
 
-        $admin = auth()->guard('web')->attempt($credentials, $remember);
-
-        if ($admin) {
-            $user = User::where('id', auth()->user()->id);
-            $user->update([
-                'last_login_at' => Carbon::now()
-            ]);
-
-            return redirect()->intended(route('admin.index'));
-        }
-
-        return redirect()->back()->withInput($request->only('username', 'remember'));
+        return redirect()->intended(route('admin.index', absolute: false));
     }
 
     public function logout()
     {
         Auth::logout();
 
-        return redirect()->back();
+        return redirect()->route('admin.auth.login');
     }
 }

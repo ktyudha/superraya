@@ -14,37 +14,41 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
-Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-        ->name('register');
+// Route::middleware('guest')->group(function () {
+//     Route::get('register', [RegisteredUserController::class, 'create'])
+//         ->name('register');
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+//     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-        ->name('login');
+//     Route::get('login', [AuthenticatedSessionController::class, 'create'])
+//         ->name('login');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+//     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-        ->name('password.request');
+//     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+//         ->name('password.request');
 
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->name('password.email');
+//     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+//         ->name('password.email');
 
-    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-        ->name('password.reset');
+//     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+//         ->name('password.reset');
 
-    Route::post('reset-password', [NewPasswordController::class, 'store'])
-        ->name('password.store');
-});
+//     Route::post('reset-password', [NewPasswordController::class, 'store'])
+//         ->name('password.store');
+// });
 
 
+Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
 
-// Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
+    Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
+        Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
+        Route::post('/login', [LoginController::class, 'store'])->name('auth.login.process');
+        Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+    });
 
-Route::group(['prefix' => 'dashboard'], function () {
     Route::middleware('auth')->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/', [DashboardController::class, 'index'])->name('index');
         Route::get('verify-email', EmailVerificationPromptController::class)
             ->name('verification.notice');
 
@@ -63,8 +67,8 @@ Route::group(['prefix' => 'dashboard'], function () {
 
         Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-        Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-            ->name('logout');
+        // Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        //     ->name('logout');
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

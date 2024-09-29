@@ -3,7 +3,7 @@
     @click.outside="sidebarToggle = false">
 
     <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <a href="{{ route('dashboard') }}">
+        <a href="{{ route('admin.index') }}">
             <img src="{{ asset('static/admin/images/logo/logo.svg') }}" alt="Logo" />
         </a>
 
@@ -25,7 +25,7 @@
                 <ul class="mb-6 flex flex-col gap-1.5">
                     <li>
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-                            href="{{ route('dashboard') }}"
+                            href="{{ route('admin.index') }}"
                             @click="selected = (selected === 'Dashboard' ? '':'Dashboard')"
                             :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Dashboard') && (page === 'Dashboard') }">
                             <i class="fa-solid fa-house"></i>
@@ -73,12 +73,12 @@
                             <ul class="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
                                 <li>
                                     <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium  duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'category' ? '!text-white' : 'text-bodydark2' }}"
-                                        href="{{ route('dashboard') }}">Category
+                                        href="{{ route('admin.index') }}">Category
                                     </a>
                                 </li>
                                 <li>
                                     <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'product' ? '!text-white' : 'text-bodydark2' }}"
-                                        href="{{ route('dashboard') }}">Product
+                                        href="{{ route('admin.index') }}">Product
                                     </a>
                                 </li>
                             </ul>
@@ -107,12 +107,12 @@
                             <ul class="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
                                 <li>
                                     <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium  duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'category' ? '!text-white' : 'text-bodydark2' }}"
-                                        href="{{ route('dashboard') }}">Category
+                                        href="{{ route('admin.index') }}">Category
                                     </a>
                                 </li>
                                 <li>
                                     <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'product' ? '!text-white' : 'text-bodydark2' }}"
-                                        href="{{ route('dashboard') }}">Service
+                                        href="{{ route('admin.index') }}">Service
                                     </a>
                                 </li>
                             </ul>
