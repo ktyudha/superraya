@@ -25,10 +25,10 @@ class Service extends Model
 
     public function showImage()
     {
-        if (Storage::exists($this->image)) {
+        if ($this->image) {
             return "storage/$this->image";
         }
-        return asset('static/admin/img/default.png');
+        return asset('static/admin/images/default.png');
     }
 
     public function scopeService($query)

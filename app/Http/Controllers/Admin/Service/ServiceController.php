@@ -59,7 +59,7 @@ class ServiceController extends Controller
             'image'           => 'required|image|max:2048'
         ]);
 
-        $path = $request->file('image')->store('slider');
+        $path = $request->file('image')->store('services');
 
         $service = new Service($request->all());
         $service->image = $path;
@@ -113,7 +113,7 @@ class ServiceController extends Controller
 
             $payload = $request->all();
 
-            $newImage = $request->file('image')->store('slider');
+            $newImage = $request->file('image')->store('services');
             $payload['image'] = $newImage;
 
             if ($newImage) {
