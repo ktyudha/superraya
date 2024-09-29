@@ -105,8 +105,8 @@
                             accept="image/*">
                         <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
                             PNG, JPG, JPEG (MAX. 2MB).</p>
-                        <img src="{{ asset(@$model->image ?? 'static/admin/images/default.png') }}" class="rounded max-w-xs"
-                            alt="photo">
+                        <img src="{{ asset('storage/' . @$model->image ?? 'static/admin/images/default.png') }}"
+                            class="rounded max-w-xs" alt="photo">
                     </div>
 
                     <button type="submit"
