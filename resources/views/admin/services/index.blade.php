@@ -62,7 +62,7 @@
                         <tr>
                             <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                                 <div class="h-12.5 w-15 rounded-md">
-                                    <img src="{{ asset($model->image) }}" alt="Product">
+                                    <img src="{{ asset('storage/' . $model->image) }}" alt="Product">
                                 </div>
                             </td>
                             <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
