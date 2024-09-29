@@ -1,7 +1,7 @@
 @extends('admin.auth.layout')
 @section('content')
     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-        <div class="flex flex-wrap h-screen items-center">
+        <div class="flex h-screen flex-wrap items-center">
             <div class="hidden w-full xl:block xl:w-1/2">
                 <div class="px-26 py-17.5 text-center">
                     <a class="mb-5.5 inline-block" href="index.html">
@@ -26,13 +26,21 @@
                         Sign In
                     </h2>
 
-                    <form>
-                        <div class="mb-4">
-                            <label class="mb-2.5 block font-medium text-black dark:text-white">Email</label>
-                            <div class="relative">
-                                <input type="email" placeholder="Enter your email"
-                                    class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                    <form method="POST" action="#" class="needs-validation" novalidate="">
+                        @csrf
 
+                        <div class="mb-4">
+                            <label class="mb-2.5 block font-medium text-black dark:text-white">Username</label>
+                            <div class="relative">
+                                <input id="name"
+                                    class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary {{ $errors->has('email') ? 'is-invalid' : '' }}"
+                                    type="text" placeholder="Username" name="username" value="{{ old('username') }}"
+                                    autofocus>
+                                @if ($errors->has('username'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong class="text-red-500">{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
                                 <span class="absolute right-4 top-4">
                                     <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,10 +55,16 @@
                         </div>
 
                         <div class="mb-6">
-                            <label class="mb-2.5 block font-medium text-black dark:text-white">Re-type Password</label>
+                            <label class="mb-2.5 block font-medium text-black dark:text-white">Password</label>
                             <div class="relative">
-                                <input type="password" placeholder="6+ Characters, 1 Capital letter"
-                                    class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
+                                <input id="Password" placeholder="Password"
+                                    class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary {{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                    type="password" name="password">
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong class="text-red-500">{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
 
                                 <span class="absolute right-4 top-4">
                                     <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22"
@@ -69,11 +83,14 @@
                         </div>
 
                         <div class="mb-5">
-                            <input type="submit" value="Sign In"
-                                class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium text-white transition hover:bg-opacity-90" />
+                            <button type="submit"
+                                class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium text-white transition hover:bg-opacity-90">Sign
+                                In
+                            </button>
+
                         </div>
 
-                        <button
+                        <button type="button"
                             class="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 font-medium hover:bg-opacity-70 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-70">
                             <span>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -102,12 +119,13 @@
                             Sign in with Google
                         </button>
 
-                        <div class="mt-6 text-center">
+
+                        {{--  <div class="mt-6 text-center">
                             <p class="font-medium">
                                 Don’t have any account?
                                 <a href="signup.html" class="text-primary">Sign Up</a>
                             </p>
-                        </div>
+                        </div>  --}}
                     </form>
                 </div>
             </div>

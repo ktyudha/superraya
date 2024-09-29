@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,9 +19,9 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'username' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         $credentials = [
@@ -48,6 +48,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return redirect()->back();
+        return redirect()->route('admin.auth.login');
     }
 }
