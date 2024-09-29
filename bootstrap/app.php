@@ -1,5 +1,6 @@
 <?php
 
+use App\Exceptions\Handler;
 use App\Http\Middleware\Admin\AuthMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -18,9 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
             'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
             'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-            // 'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-            // 'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
-            // 'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
         ]);
 
         $middleware->appendToGroup('web', [
@@ -34,5 +35,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->dontReport([
+            Handler::class,
+        ]);
     })->create();

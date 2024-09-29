@@ -30,14 +30,15 @@
                         @csrf
 
                         <div class="mb-4">
-                            <label class="mb-2.5 block font-medium text-black dark:text-white">Email</label>
+                            <label class="mb-2.5 block font-medium text-black dark:text-white">Username</label>
                             <div class="relative">
                                 <input id="name"
                                     class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                    type="email" placeholder="Email" name="email" value="{{ old('email') }}" autofocus>
-                                @if ($errors->has('email'))
+                                    type="text" placeholder="Username" name="username" value="{{ old('username') }}"
+                                    autofocus>
+                                @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong class="text-red-500">{{ $errors->first('email') }}</strong>
+                                        <strong class="text-red-500">{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                                 <span class="absolute right-4 top-4">

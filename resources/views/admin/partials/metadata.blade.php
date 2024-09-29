@@ -3,12 +3,13 @@
 {{--  <link rel="shortcut icon" href="{{ asset(@$setting->firstWhere('key', 'icon')->value) }}">  --}}
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>@yield('title', 'SUPERRAYA™')</title>
+<title>@yield('title', 'SUPERRAYA™') | Bengkel Super Raya Teknik</title>
 
 @section('meta')
     @yield('metadata')
     <meta name="keywords" content="{{ @$about->meta_keywords }}" />
-    {{--  <meta name="description" content="{{ @$about->meta_description }}" />  --}}
+    <meta name="title" content="SUPERRAYA™" />
+    <meta name="description" content="Bengkel Super Raya Teknik" />
     {{--  <meta name="author" content="{{ @$setting->firstWhere('key', 'name')->value }}" />  --}}
     {{--  <meta property="og:title" content="{{ @$about->title }}">  --}}
     {{--  <meta property="og:description" content="{{ @$about->meta_description }}">  --}}

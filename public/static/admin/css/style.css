@@ -215,3 +215,8 @@ span.flatpickr-weekday,
 [x-cloak] {
     display: none !important;
 }
+
+/* Text Editor */
+.ql-toolbar.ql-snow {
+    background-color: white !important;
+}
