@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Product\ProductCategoryController;
+use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -50,7 +52,14 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
 
     Route::middleware('auth:web', 'permission:admin access')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
+        // Service
         Route::resource('services', ServiceController::class);
+
+        // Product
+        Route::name('product.')->group(function () {
+            Route::resource('product/categories', ProductCategoryController::class);
+            Route::resource('product/posts', ProductController::class);
+        });
     });
 
     // Route::middleware('auth')->group(function () {
