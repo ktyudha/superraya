@@ -196,8 +196,15 @@ class ProductController extends Controller
      */
     public function destroy(Product $post)
     {
+
         if (Storage::exists($post->image)) {
             Storage::delete($post->image);
+        }
+
+        if ($post->images) {
+            foreach ($post->images as $value) {
+                Storage::delete($value->image);
+            }
         }
 
         if ($post->delete()) {
