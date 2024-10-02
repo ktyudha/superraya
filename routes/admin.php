@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Product\ProductCategoryController;
+use App\Http\Controllers\Admin\SocialMedia\SocialMediaController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
 // Route::middleware('guest')->group(function () {
@@ -65,6 +66,9 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
             Route::resource('product/categories', ProductCategoryController::class);
             Route::resource('product/posts', ProductController::class);
         });
+
+        // Social
+        Route::resource('social', SocialMediaController::class);
 
         // Settings
         Route::prefix('settings')

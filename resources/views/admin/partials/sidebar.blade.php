@@ -59,11 +59,11 @@
                                             href="{{ route('admin.settings.basic-info.edit') }}">Basic Info
                                         </a>
                                     </li>
-                                    {{--  <li>
-                                        <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'product-posts' ? '!text-white' : 'text-bodydark2' }}"
-                                            href="{{ route('admin.product.posts.index') }}">Product
+                                    <li>
+                                        <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'social-media' ? '!text-white' : 'text-bodydark2' }}"
+                                            href="{{ route('admin.social.index') }}">Social
                                         </a>
-                                    </li>  --}}
+                                    </li>
                                 </ul>
                             </div>
                         </li>
