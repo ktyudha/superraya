@@ -97,7 +97,7 @@ class SocialMediaController extends Controller
     {
         $request->validate([
             'title' => 'required|max:250',
-            'type'  => 'required|unique:social_media,type',
+            'type'  => 'required|unique:social_media,type,' . $social->id,
             'url'   => 'required'
         ]);
 
