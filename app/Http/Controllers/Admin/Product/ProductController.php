@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Models\Service;
+use App\Models\Product\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\Product\Product;
 use App\Http\Controllers\Controller;
@@ -58,15 +59,29 @@ class ProductController extends Controller
             'title'           => 'required|max:250',
             'product_category_id' => 'required|string|exists:product_categories,id',
             'description'     => 'required',
-            'image'           => 'required|image|max:2048'
+            'image'           => 'required|image|max:2048',
+            'images'           => 'required|array',
+            'images.*'           => 'required|image|max:2048',
         ]);
 
         $path = $request->file('image')->store('products');
         $product = new Product($request->all());
 
-        $product->user_id = auth()->user()->id;
+        $product->user_id = auth()->guard('web')->user()->id;
         $product->image = $path;
-        $product->save();
+
+        if ($product->save()) {
+            if ($request->images) {
+                foreach ($request->images as $image) {
+
+                    $productImage = new ProductImage();
+                    $pathProductImage = $image->store('products');
+                    $productImage->product_id = $product->id;
+                    $productImage->image = $pathProductImage;
+                    $productImage->save();
+                }
+            }
+        }
 
         return redirect()
             ->route('admin.product.posts.index')
@@ -110,10 +125,47 @@ class ProductController extends Controller
             'title'           => 'required|max:250',
             'product_category_id' => 'required|string|exists:product_categories,id',
             'description'     => 'required',
-            'image'           => 'image|max:2048'
+            'image'           => 'image|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
+        $recentImage  = ProductImage::where('product_id', $post->id)->get();
+        // dd($recentImage, $request);
+
+        // gambar Update
+        foreach ($recentImage as $key => $result) {
+            // cek jika gambar diganti
+
+            if ($request->file('image-' . $result->id)) {
+                $newImage = $request->file('image-' . $result->id)->store('products');
+
+                if ($newImage) {
+                    Storage::delete($result->image);
+                }
+
+                $result->update(['product_id' => $post->id, 'image' => $newImage]);
+            }
+            // gambar dihapus
+            elseif (!$request->input('isimage-' . $result->id)) {
+                Storage::delete($result->image);  // hapus gambar di storage
+                $result->delete(); // hapus data
+            }
+        }
+
+        // image baru
+        if ($request->hasFile('images')) {
+            foreach ($request->images as $key => $value) {
+                if ($value) {
+                    $image                = new ProductImage();
+                    $imagex = $value->store('products');
+                    $image->product_id    = $post->id;
+                    $image->image         = $imagex;
+                    $image->save();
+                }
+            }
+        }
+
+
+        if ($request->image) {
 
             $payload = $request->all();
 
@@ -128,6 +180,7 @@ class ProductController extends Controller
 
             $post->update($payload);
         } else {
+            // dd($request->all());
             $post->update($request->all());
         }
 
@@ -143,8 +196,15 @@ class ProductController extends Controller
      */
     public function destroy(Product $post)
     {
+
         if (Storage::exists($post->image)) {
             Storage::delete($post->image);
+        }
+
+        if ($post->images) {
+            foreach ($post->images as $value) {
+                Storage::delete($value->image);
+            }
         }
 
         if ($post->delete()) {
