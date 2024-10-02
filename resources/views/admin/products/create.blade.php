@@ -93,7 +93,7 @@
                                 @endforeach
                                 {{--  <option value="" class="text-body">Option 3</option>  --}}
                             </select>
-                            <span class="absolute right-4 top-1/2 z-10 -translate-y-1/2">
+                            {{--  <span class="absolute right-4 top-1/2 z-10 -translate-y-1/2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g opacity="0.8">
@@ -102,7 +102,7 @@
                                             fill="#637381"></path>
                                     </g>
                                 </svg>
-                            </span>
+                            </span>  --}}
                         </div>
                     </div>
 
@@ -139,8 +139,8 @@
                                 accept="image/*">
                             <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
                                 PNG, JPG, JPEG (MAX. 2MB).</p>
-                            <img src="{{ asset('static/admin/images/default.png') }}"
-                                class="rounded object-cover h-48 w-48" alt="photo" id="photo-0">
+                            <img src="{{ asset('static/admin/images/default.png') }}" class="rounded object-cover h-48 w-48"
+                                alt="photo" id="photo-0">
 
                             {{--  <button type="button" onclick="imageRemove(this)"
                                 class="justify-center rounded bg-red-600 mt-3 py-1 px-3 font-medium text-gray hover:bg-opacity-90">

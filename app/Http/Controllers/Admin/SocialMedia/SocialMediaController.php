@@ -9,13 +9,14 @@ use App\Models\SocialMedia;
 class SocialMediaController extends Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('permission:social read');
         $this->middleware('permission:social create')->only('create', 'store');
         $this->middleware('permission:social update')->only('edit', 'update');
         $this->middleware('permission:social delete')->only('destroy');
 
-        view()->share('menuActive', 'landing-page');
+        view()->share('menuActive', 'settings');
         view()->share('subMenuActive', 'social-media');
     }
 
@@ -50,7 +51,7 @@ class SocialMediaController extends Controller
     {
         $request->validate([
             'title' => 'required|max:250',
-            'type'  => 'required',
+            'type'  => 'required|unique:social_media,type',
             'url'   => 'required'
         ]);
 
@@ -96,12 +97,12 @@ class SocialMediaController extends Controller
     {
         $request->validate([
             'title' => 'required|max:250',
-            'type'  => 'required',
+            'type'  => 'required|unique:social_media,type',
             'url'   => 'required'
         ]);
-            
+
         $social->update($request->all());
-        
+
         return redirect()->route('admin.social.index')->with(['status' => 'success', 'message' => 'Update Successfully']);
     }
 
