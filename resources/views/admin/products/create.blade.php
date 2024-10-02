@@ -88,7 +88,8 @@
 
                                 <option class="text-body" value="" selected>Select Product Categories</option>
                                 @foreach ($categories as $key => $category)
-                                    <option value="{{ $category['id'] }}" class="text-body">{{ $category['name'] }}</option>
+                                    <option value="{{ $category['id'] }}" class="text-body" @selected(old('product_category_id') == $category['id'])>
+                                        {{ $category['name'] }}</option>
                                 @endforeach
                                 {{--  <option value="" class="text-body">Option 3</option>  --}}
                             </select>
@@ -117,7 +118,36 @@
                             accept="image/*">
                         <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
                             PNG, JPG, JPEG (MAX. 2MB).</p>
-                        <img src="{{ asset('static/admin/images/default.png') }}" class="rounded max-w-xs" alt="photo">
+                        <img src="{{ asset('static/admin/images/default.png') }}" class="rounded object-cover h-48 w-48"
+                            alt="photo">
+                    </div>
+
+                    <hr class="mb-6">
+
+                    <button type="button" onclick="addDetailImage()"
+                        class="flex justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                        <i class="fa-regular fa-image text-lg"></i>
+                        <span class="my-auto ml-3"> Add Image Product</span>
+                    </button>
+
+                    <div id="detail-product" class="my-6 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
+                        <div class="product-images">
+                            <input
+                                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                aria-describedby="file_input_help" id="file input" type="file" name="images[]"
+                                onchange="document.querySelector('.product-images img#photo-0').src = window.URL.createObjectURL(this.files[0])"
+                                accept="image/*">
+                            <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
+                                PNG, JPG, JPEG (MAX. 2MB).</p>
+                            <img src="{{ asset('static/admin/images/default.png') }}"
+                                class="rounded object-cover h-48 w-48" alt="photo" id="photo-0">
+
+                            {{--  <button type="button" onclick="imageRemove(this)"
+                                class="justify-center rounded bg-red-600 mt-3 py-1 px-3 font-medium text-gray hover:bg-opacity-90">
+                                <i class="fa-solid fa-trash text-lg"></i>
+                                <span class="my-auto ml-1"> Delete</span>
+                            </button>  --}}
+                        </div>
                     </div>
 
                     <button type="submit"
@@ -144,4 +174,59 @@
             textAreaDescription.value = editor.root.innerHTML
         })
     </script>
+    <script type="text/javascript">
+        let indexImage = 0;
+
+        function addDetailImage() {
+            indexImage++;
+
+            var html = ` <div class="product-images mb-3">
+                            <input
+                                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                aria-describedby="file_input_help" id="file input" type="file" name="images[]"
+                                onchange="document.querySelector('.product-images img#photo-${indexImage}').src = window.URL.createObjectURL(this.files[0])"
+                                accept="image/*">
+                            <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
+                                PNG, JPG, JPEG (MAX. 2MB).</p>
+                            <img src="{{ asset('static/admin/images/default.png') }}" class="rounded object-cover h-48 w-48"
+                                alt="photo" id="photo-${indexImage}">
+
+                            <button type="button" onclick="imageRemove(this)"
+                                class="justify-center rounded bg-red-600 mt-3 py-1 px-3 font-medium text-gray hover:bg-opacity-90">
+                                <i class="fa-solid fa-trash text-lg"></i>
+                                <span class="my-auto ml-1"> Delete</span>
+                            </button>
+                        </div>`;
+
+            $('#detail-product').append(html);
+        }
+
+        function imageRemove(that) {
+            $(that).parents('.product-images').remove();
+        }
+    </script>
+    {{--  <script>
+        function addImage() {
+            tahu++;
+            var wrap = $("#detail-product");
+            var kelas = "\'img#photo" + tahu + "\'";
+            var assets = "{{ asset('static/admin/img/default.png') }}";
+            var html = '<div class="col-md-3 halo" style="margin-bottom:20px;">' +
+                '<div class="custom-file">' +
+                '<input id="photo' + tahu +
+                '" type="file" name="image[]" class="custom-file-input" accept="image/*"                                  onchange="document.querySelector(' +
+                kelas + ').src = window.URL.createObjectURL(this.files[0])">' +
+                '<label class="custom-file-label" for="customFile">Choose file</label>' +
+                '</div>' +
+                '<img src="' + assets + '" alt="photo" id="photo' + tahu + '">' +
+                '<a href="javascript:void(0)" onclick="imageRemove(this)" class="btn btn-icon btn-danger" title="delete"><i class="fas fa-trash"></i> Delete</a>' +
+                '</div>';
+
+            $(wrap).append(html);
+        }
+
+        function imageRemove(that) {
+            $(that).parents('.col-md-3').remove();
+        }
+    </script>  --}}
 @endsection

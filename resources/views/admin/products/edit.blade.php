@@ -127,6 +127,38 @@
                             class="rounded max-w-xs" alt="photo">
                     </div>
 
+                    <hr class="mb-6">
+
+                    <button type="button" onclick="addDetailImage()"
+                        class="flex justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                        <i class="fa-regular fa-image text-lg"></i>
+                        <span class="my-auto ml-3"> Add Image Product</span>
+                    </button>
+
+                    <div id="detail-product" class="my-6 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
+                        @foreach (@$model->images as $image)
+                            <div class="product-images">
+                                <input
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                    aria-describedby="file_input_help" id="file input" type="file"
+                                    name="image-{{ $image->id }}"
+                                    onchange="document.querySelector('.product-images img#photo-{{ $image->id }}').src = window.URL.createObjectURL(this.files[0])"
+                                    accept="image/*">
+                                <input type="hidden" name="isimage-{{ $image->id }}" value="true">
+                                <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
+                                    PNG, JPG, JPEG (MAX. 2MB).</p>
+                                <img src="{{ asset('storage/' . @$image->image ?? 'static/admin/images/default.png') }}"
+                                    class="rounded object-cover h-48 w-48" alt="photo"
+                                    id="photo-{{ $image->id }}">
+                                <button type="button" onclick="imageRemove(this)"
+                                    class="justify-center rounded bg-red-600 mt-3 py-1 px-3 font-medium text-gray hover:bg-opacity-90">
+                                    <i class="fa-solid fa-trash text-lg"></i>
+                                    <span class="my-auto ml-1"> Delete</span>
+                                </button>
+                            </div>
+                        @endforeach
+                    </div>
+
                     <button type="submit"
                         class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                         Update
@@ -150,5 +182,37 @@
         formAbout.addEventListener('submit', (e) => {
             textAreaDescription.value = editor.root.innerHTML
         })
+    </script>
+
+    <script type="text/javascript">
+        let indexImage = 0;
+
+        function addDetailImage() {
+            indexImage++;
+
+            var html = ` <div class="product-images mb-3">
+                            <input
+                                class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                aria-describedby="file_input_help" id="file input" type="file" name="images[]"
+                                onchange="document.querySelector('.product-images img#photo-${indexImage}').src = window.URL.createObjectURL(this.files[0])"
+                                accept="image/*">
+                            <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
+                                PNG, JPG, JPEG (MAX. 2MB).</p>
+                            <img src="{{ asset('static/admin/images/default.png') }}" class="rounded object-cover h-48 w-48"
+                                alt="photo" id="photo-${indexImage}">
+
+                            <button type="button" onclick="imageRemove(this)"
+                                class="justify-center rounded bg-red-600 mt-3 py-1 px-3 font-medium text-gray hover:bg-opacity-90">
+                                <i class="fa-solid fa-trash text-lg"></i>
+                                <span class="my-auto ml-1"> Delete</span>
+                            </button>
+                        </div>`;
+
+            $('#detail-product').append(html);
+        }
+
+        function imageRemove(that) {
+            $(that).parents('.product-images').remove();
+        }
     </script>
 @endsection
