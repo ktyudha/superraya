@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\Storage;
 class BasicInfoController extends Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         view()->share('menuActive', 'settings');
         view()->share('subMenuActive', 'basic-info');
     }
-    
+
     public function edit()
     {
         $name       = @Setting::key(Setting::NAME)->first()->value;
@@ -27,8 +28,8 @@ class BasicInfoController extends Controller
         $pixel      = @Setting::key(Setting::PIXEL)->first()->value;
         $analytics  = @Setting::key(Setting::ANALYTICS)->first()->value;
         $file       = @Setting::key(Setting::FILE)->first()->value;
- 
-        $setting = (object) compact('name','email','phone','youtube','whatsapp','address','gmaps','pixel', 'analytics','file');
+
+        $setting = (object) compact('name', 'email', 'phone', 'youtube', 'whatsapp', 'address', 'gmaps', 'pixel', 'analytics', 'file');
         return view('admin.settings.basic-info.edit', compact('setting'));
     }
 
@@ -40,12 +41,12 @@ class BasicInfoController extends Controller
             'phone' => ['required'],
             'whatsapp' => ['required'],
             'address' => ['required'],
-            'file' => ['file','mimes:pdf,doc,docx','max:2048']
+            'file' => ['file', 'mimes:pdf,doc,docx', 'max:2048']
         ]);
 
         Setting::updateOrCreate([
             'key' => Setting::NAME,
-            ], ['value' => $request->name]);
+        ], ['value' => $request->name]);
 
         Setting::updateOrCreate([
             'key' => Setting::EMAIL,
@@ -80,14 +81,14 @@ class BasicInfoController extends Controller
         ], ['value' => $request->analytics]);
 
         if ($request->hasFile('file')) {
-            $filex = Setting::where('key','file')->first();
+            $filex = Setting::where('key', 'file')->first();
             Storage::delete(@$filex->value);
-       
+
             $path = $request->file('file')->store('setting');
             Setting::updateOrCreate([
                 'key' => Setting::FILE,
-            ], ['value' => 'storage/'.$path]);
-        } 
+            ], ['value' => 'storage/' . $path]);
+        }
 
         return redirect()->route('admin.settings.basic-info.edit')->with([
             'success' => 'Basic Info Saved :)'
