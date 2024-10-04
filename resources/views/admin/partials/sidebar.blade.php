@@ -3,8 +3,10 @@
     @click.outside="sidebarToggle = false">
 
     <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <a href="{{ route('admin.index') }}">
-            <img src="{{ asset('static/admin/images/logo/logo.svg') }}" alt="Logo" />
+        <a href="{{ route('admin.index') }}" class="mx-auto text-center">
+            {{--  <img src="{{ asset('static/admin/images/logo/logo.svg') }}" alt="Logo" />  --}}
+            <h1 class="text-3xl font-bold text-white ">SUPERRAYA™</h1>
+
         </a>
 
         <button class="block lg:hidden" @click.stop="sidebarToggle = !sidebarToggle">
