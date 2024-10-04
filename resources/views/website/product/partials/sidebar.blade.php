@@ -22,18 +22,18 @@
         <div class="categories mb-9">
             <h2 class="uppercase text-sm font-bold mb-2.5">Categories</h2>
             <ul>
-                <li class="my-2.5 hover:underline"><a href="">Industri</a></li>
-                <li class="my-2.5 hover:underline"><a href="">Pertanian</a></li>
-                <li class="my-2.5 hover:underline"><a href="">Peternakan</a></li>
-                <li class="my-2.5 hover:underline"><a href="">Pangan</a></li>
+                @foreach ($categories as $key => $category)
+                    <li class="my-2.5 hover:underline"><a href="">{{ $category['name'] }}</a></li>
+                @endforeach
             </ul>
         </div>
         <div class="best-seller mb-9">
             <h2 class="uppercase text-sm font-bold mb-2.5">Best Seller</h2>
             <ul>
-                <li class="my-2.5 hover:underline"><a href="">Mesin Press Kardus</a></li>
-                <li class="my-2.5 hover:underline"><a href="">Mesin Penggoreng Singkong</a></li>
-                <li class="my-2.5 hover:underline"><a href="">Mesin Penimpil Jagung</a></li>
+                @foreach ($products_best as $key => $best)
+                    <li class="my-2.5 hover:underline"><a
+                            href="{{ route('product.show', $best->slug) }}">{{ $best['title'] }}</a></li>
+                @endforeach
             </ul>
         </div>
     </div>

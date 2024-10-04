@@ -17,7 +17,7 @@ class Product extends Model
     {
         return [
             'slug' => [
-                'source' => 'name',
+                'source' => 'title',
                 'onUpdate' => true
             ]
         ];

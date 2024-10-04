@@ -35,7 +35,7 @@
                     <span>/</span>
                     <li class="hover:underline"><a href="{{ route('product.index') }}">Product</a></li>
                     <span>/</span>
-                    <li><a>Mesin Press Kardus</a></li>
+                    <li><a>{{ @$model['title'] }}</a></li>
                 </ul>
             </div>
             <div class="grid lg:grid-cols-12 grid-cols-1 lg:gap-6 test">
@@ -44,64 +44,31 @@
                     <div class="lg:hidden">
                         <div class="swiper detailProduct md:h-full">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                                        alt="Produk" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                                        alt="Produk" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                                        alt="Produk" />
-                                </div>
+                                @foreach ($model->images as $key => $value)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('storage/' . $value->image) }}" class="w-full" alt="Produk" />
+                                    </div>
+                                @endforeach
                             </div>
-                            {{--  <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>  --}}
                             <div class="swiper-pagination"></div>
                         </div>
                     </div>
 
                     <div class="col-middle min-h-screen hidden lg:block">
-                        <div class="image ratio r-1-1 ">
-                            <div class="outer-content">
-                                <div class="inner-content"><img
-                                        src="https://compass-ecom-bucket.s3-ap-southeast-1.amazonaws.com/images/productdetail/64cc9e063e4315bfbf331c5f68dc9a6f5b3bcee1.jpg"
-                                        class="img-fluid" alt="Shoes"></div>
+                        @foreach ($model->images as $key => $value)
+                            <div class="image ratio r-1-1 ">
+                                <div class="outer-content">
+                                    <div class="inner-content"><img src="{{ asset('storage/' . $value->image) }}"
+                                            class="img-fluid" alt="Shoes"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="image ratio r-1-1 ">
-                            <div class="outer-content">
-                                <div class="inner-content"><img
-                                        src="https://compass-ecom-bucket.s3-ap-southeast-1.amazonaws.com/images/productdetail/398af4aebdc9c92074eddc11171ca1a0c30f3928.jpg"
-                                        class="img-fluid" alt="Shoes"></div>
-                            </div>
-                        </div>
-                        <div class="image ratio r-1-1 ">
-                            <div class="outer-content">
-                                <div class="inner-content"><img
-                                        src="https://compass-ecom-bucket.s3-ap-southeast-1.amazonaws.com/images/productdetail/3cb714fd9c01555c518a9efae35fbba15f7411f8.jpg"
-                                        class="img-fluid" alt="Shoes"></div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="lg:col-span-3 sidebar order-2 lg:order-1 mb-12">
                     <div class="title">
-                        <h1 class="md:text-2xl text-lg uppercase font-bold lg:mb-8 mb-3">MESIN PRESS KARDUS</h1>
-                        <p class="md:text-sm text-xs">The exclusive Tribune Modular® features the sophistication of leather
-                            and
-                            classic
-                            colour profile.
-                            <br><br>
-                            Compass® Retrograde® Tribune is an article inspired by 'terrace culture' - a subculture movement
-                            that started in the football stadiums of UK, and has evolved into a distinct irreverent style
-                            and attitude.
-                            <br><br>
-                            The fiery passion and sense of identity embodied by sport supporters, became the inspiration
-                            behind this new silhouette.
-                        </p>
+                        <h1 class="md:text-2xl text-lg uppercase font-bold lg:mb-8 mb-3">{{ @$model['title'] }}</h1>
+                        <div class="md:text-sm text-xs">{!! @$model['description'] !!}</div>
                     </div>
                 </div>
                 <div class="lg:col-span-3 dataset order-2 mb-16">
@@ -154,57 +121,24 @@
                 </div>
             </div>
 
+
+
             <h1 class="text-2xl md:text-3xl font-normal md:mt-10 mb-2 font-primary italic">You might also like</h1>
-            <div class="swiper mySwiper h-[260px] lg:h-[300px]">
+            <div class="swiper mySwiper h-[260px] lg:h-[350px]">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                            alt="Produk" />
-                        <div class="my-3.5">
-                            <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
+                    @foreach (@$products as $key => $product)
+                        <div class="swiper-slide">
+                            <a href="{{ route('product.show', $product->slug) }}">
+                                <img src="{{ asset('storage/' . $product->image) }}" class="w-full"
+                                    alt="{{ $product->title }}" />
+                                <div class="my-3.5">
+                                    <h2 class="pl-0 text-sm font-normal text-center">{{ $product->title }}</h2>
+                                    <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">
+                                        {{ $product->category->name }}</p>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                            alt="Produk" />
-                        <div class="my-3.5">
-                            <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                            alt="Produk" />
-                        <div class="my-3.5">
-                            <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                            alt="Produk" />
-                        <div class="my-3.5">
-                            <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                            alt="Produk" />
-                        <div class="my-3.5">
-                            <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full"
-                            alt="Produk" />
-                        <div class="my-3.5">
-                            <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="hidden lg:block">
                     <div class="swiper-button-prev"></div>
@@ -212,7 +146,6 @@
                 </div>
                 <div class="swiper-pagination block lg:hidden"></div>
             </div>
-
         </div>
     </div>
 @stop

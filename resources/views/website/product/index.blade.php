@@ -18,42 +18,17 @@
 
         <div class="lg:mt-32 mt-10 lg:mr-40 mx-4 lg:w-4/5">
             <div class="grid lg:grid-cols-3 grid-cols-2 lg:gap-x-24 md:gap-x-14 gap-x-3">
-                <a href="{{ route('product.show', 1) }}" class="card card-compact w-full rounded-none">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </a>
-                <a href="{{ route('product.show', 2) }}" class="card card-compact w-full rounded-none">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </a>
-                <a href="{{ route('product.show', 3) }}" class="card card-compact w-full rounded-none">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </a>
-                <a href="{{ route('product.show', 4) }}" class="card card-compact w-full rounded-none">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </a>
-                <a href="{{ route('product.show', 5) }}" class="card card-compact w-full rounded-none">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </a>
-
+                @foreach ($products as $key => $product)
+                    <a href="{{ route('product.show', $product['slug']) }}" class="card card-compact w-full rounded-none">
+                        <img src="{{ asset('storage/' . $product['image']) }}" alt="Produk" />
+                        <div class="my-3.5">
+                            <h2 class="pl-0 text-sm font-normal text-center">{{ $product['title'] }}</h2>
+                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">
+                                {{ $product['category']->name }}
+                            </p>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>

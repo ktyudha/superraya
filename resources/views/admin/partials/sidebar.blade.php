@@ -144,7 +144,7 @@
                                 <ul class="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
                                     @can('services read')
                                         <li>
-                                            <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium  duration-300 ease-in-out hover:text-white @if ($subMenuActive === 'services') text-white @endif"
+                                            <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'sliders' ? '!text-white' : 'text-bodydark2' }}"
                                                 href="{{ route('admin.services.index') }}">Service
                                             </a>
                                         </li>
@@ -189,7 +189,7 @@
         <div
             class="fixed bottom-0 mb-0 w-full  rounded-sm border border-strokedark bg-boxdark px-4 py-6 text-center shadow-default">
             <h3 class="mb-1 font-semibold text-white">Inbework Media</h3>
-            <p class="mb-4 text-xs">© 2024</p>
+            <p class="mb-4 text-xs text-bodydark2">© 2024</p>
             <a href="https://wa.me/6285848250548/" target="_blank" rel="nofollow"
                 class="flex items-center justify-center rounded-md bg-primary p-2 text-white hover:bg-opacity-95">
                 <i class="fa-solid fa-headset mr-3"></i> Helpdesk

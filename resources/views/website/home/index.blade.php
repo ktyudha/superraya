@@ -32,7 +32,7 @@
             <div class="md:block hidden group absolute bottom-20 md:right-[90px] rotate-90 right-6  items-end justify-end ">
                 <div class="flex ">
                     <p class="text-white uppercase">SCROLL FOR MORE</p>
-                    <hr class="my-auto w-8 ml-1">
+                    <hr class="my-auto w-8 ml-1 text-white">
                 </div>
 
             </div>
