@@ -143,56 +143,74 @@
             </div>
 
             <div class="lg:w-4/5 w-full">
-                <swiper-container id="service-carousel" class="mySwiper md:h-48 h-32">
-                    <swiper-slide class="lg:h-50 md:h-38 h-32">
-                        <div class="flex">
-                            <img src="{{ asset('static/website/images/product/produk-1.png') }}"
-                                class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
-                            <div class="pl-2 text-left">
-                                <h2 class="lg:text-lg text-lg  font-semibold">HALLO! WHICH
-                                    PABLO ARE YOU
-                                    TODAY?</h2>
-                                <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                <div class="swiper mySwiper md:h-48 h-32">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide lg:h-50 md:h-38 h-32">
+                            <div class="flex">
+                                <img src="{{ asset('static/website/images/product/produk-1.png') }}"
+                                    class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
+                                <div class="pl-2 text-left">
+                                    <h2 class=" text-lg  font-semibold">HALLO! WHICH
+                                        PABLO ARE YOU
+                                        TODAY?</h2>
+                                    <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                                </div>
                             </div>
                         </div>
-                    </swiper-slide>
-                    <swiper-slide class="lg:h-50 md:h-38 h-32">
-                        <div class="flex">
-                            <img src="{{ asset('static/website/images/product/produk-1.png') }}"
-                                class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
-                            <div class="pl-2 text-left">
-                                <h2 class="lg:text-lg text-lg  font-semibold">HALLO! WHICH
-                                    PABLO ARE YOU
-                                    TODAY?</h2>
-                                <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                        <div class="swiper-slide lg:h-50 md:h-38 h-32">
+                            <div class="flex">
+                                <img src="{{ asset('static/website/images/product/produk-1.png') }}"
+                                    class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
+                                <div class="pl-2 text-left">
+                                    <h2 class=" text-lg  font-semibold">HALLO! WHICH
+                                        PABLO ARE YOU
+                                        TODAY?</h2>
+                                    <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                                </div>
                             </div>
                         </div>
-                    </swiper-slide>
-                    <swiper-slide class="lg:h-50 md:h-38 h-32">
-                        <div class="flex">
-                            <img src="{{ asset('static/website/images/product/produk-1.png') }}"
-                                class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
-                            <div class="pl-2 text-left">
-                                <h2 class="lg:text-lg text-lg  font-semibold">HALLO! WHICH
-                                    PABLO ARE YOU
-                                    TODAY?</h2>
-                                <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                        <div class="swiper-slide lg:h-50 md:h-38 h-32">
+                            <div class="flex">
+                                <img src="{{ asset('static/website/images/product/produk-1.png') }}"
+                                    class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
+                                <div class="pl-2 text-left">
+                                    <h2 class=" text-lg  font-semibold">HALLO! WHICH
+                                        PABLO ARE YOU
+                                        TODAY?</h2>
+                                    <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                                </div>
                             </div>
                         </div>
-                    </swiper-slide>
-                    <swiper-slide class="lg:h-50 md:h-38 h-32">
-                        <div class="flex">
-                            <img src="{{ asset('static/website/images/product/produk-1.png') }}"
-                                class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
-                            <div class="pl-2 text-left">
-                                <h2 class=" text-lg  font-semibold">HALLO! WHICH
-                                    PABLO ARE YOU
-                                    TODAY?</h2>
-                                <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                        <div class="swiper-slide lg:h-50 md:h-38 h-32">
+                            <div class="flex">
+                                <img src="{{ asset('static/website/images/product/produk-1.png') }}"
+                                    class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
+                                <div class="pl-2 text-left">
+                                    <h2 class=" text-lg  font-semibold">HALLO! WHICH
+                                        PABLO ARE YOU
+                                        TODAY?</h2>
+                                    <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                                </div>
                             </div>
                         </div>
-                    </swiper-slide>
-                </swiper-container>
+                        <div class="swiper-slide lg:h-50 md:h-38 h-32">
+                            <div class="flex">
+                                <img src="{{ asset('static/website/images/product/produk-1.png') }}"
+                                    class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
+                                <div class="pl-2 text-left">
+                                    <h2 class=" text-lg  font-semibold">HALLO! WHICH
+                                        PABLO ARE YOU
+                                        TODAY?</h2>
+                                    <p class="text-xs mb-auto text-gray-500">PT. PELABUHAN INDONESIA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -228,55 +246,76 @@
         }
     </script>
     <script>
-        const swiperEl = document.querySelector('swiper-container')
-        const params = {
+        var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
-            loop: true,
-            injectStyles: [
-                `
-          .swiper-button-next,
-          .swiper-button-prev {
-            background-color: white;
-            padding: 8px 16px;
-            border-radius: 100%;
-            border: 2px solid black;
-            color: red;
-          }
-          .swiper-pagination-bullet{
-            width: 40px;
-            height: 40px;
-            background-color: red;
-          }
-      `,
-            ],
+            spaceBetween: 20,
+            grabCursor: true,
+            navigation: true,
+            centeredSlides: true,
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
             breakpoints: {
                 640: {
                     slidesPerView: 1,
+                    spaceBetween: 10,
+                    centeredSlides: false,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
                 },
                 768: {
                     slidesPerView: 2,
+                    spaceBetween: 10,
+                    centeredSlides: false,
+                    pagination: false,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
                 },
                 1024: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                    centeredSlides: false,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
                 },
                 1200: {
                     slidesPerView: 2,
+                    spaceBetween: 50,
+                    centeredSlides: false,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
                 },
                 1680: {
                     slidesPerView: 3,
                     spaceBetween: 10,
-                },
-                1920: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
+                    centeredSlides: false,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
                 },
             },
-        }
-        Object.assign(swiperEl, params);
-        swiperEl.initialize();
+
+        });
+
+        var swiper = new Swiper(".detailProduct", {
+            slidesPerView: "auto",
+            navigation: true,
+            grabCursor: true,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
     </script>
+
 @stop

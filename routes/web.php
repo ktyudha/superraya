@@ -22,6 +22,9 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.
 Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
 Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
 
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

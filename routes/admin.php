@@ -6,8 +6,10 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\Inbox\InboxController;
 use App\Http\Controllers\Admin\Setting\LogoController;
 use App\Http\Controllers\Admin\Setting\AboutController;
+use App\Http\Controllers\Admin\Slider\SliderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Setting\PopupsController;
 use App\Http\Controllers\Admin\Product\ProductController;
@@ -58,6 +60,10 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
 
     Route::middleware('auth:web', 'permission:admin access')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+        // Slider
+        Route::resource('sliders', SliderController::class);
+
         // Service
         Route::resource('services', ServiceController::class);
 
@@ -70,6 +76,9 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
         // Social
         Route::resource('social', SocialMediaController::class);
 
+        // Inbox
+        Route::resource('inboxes', InboxController::class);
+
         // Settings
         Route::prefix('settings')
             ->name('settings.')
@@ -78,10 +87,10 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
                 Route::get('basic-info', [BasicInfoController::class, 'edit'])->name('basic-info.edit');
                 Route::put('basic-info', [BasicInfoController::class, 'update']);
                 // Route::get('index', [AboutController::class, 'index'])->name('about.index');
-                // Route::get('about', [AboutController::class, 'edit'])->name('about.edit');
-                // Route::put('about', [AboutController::class, 'update'])->name('about.update');
-                // Route::get('logo', [LogoController::class, 'edit'])->name('logo.edit');
-                // Route::put('logo', [LogoController::class, 'update'])->name('logo.update');
+                Route::get('about', [AboutController::class, 'edit'])->name('about.edit');
+                Route::put('about', [AboutController::class, 'update'])->name('about.update');
+                Route::get('logo', [LogoController::class, 'edit'])->name('logo.edit');
+                Route::put('logo', [LogoController::class, 'update'])->name('logo.update');
                 // Route::get('breadcrumb', [BreadcrumbController::class, 'edit'])->name('breadcrumb.edit');
                 // Route::put('breadcrumb', [BreadcrumbController::class, 'update'])->name('breadcrumb.update');
                 // Route::get('popup', [PopupsController::class, 'index'])->name('popup.index');

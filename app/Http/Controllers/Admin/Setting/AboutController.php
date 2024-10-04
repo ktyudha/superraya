@@ -9,7 +9,8 @@ use App\Models\Setting;
 class AboutController extends Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         view()->share('menuActive', 'settings');
         view()->share('subMenuActive', 'about');
     }
@@ -18,13 +19,13 @@ class AboutController extends Controller
     {
         $about = (object) [
             'id' => @Setting::key(Setting::ABOUT)->locale(Setting::ID)->first()->json_value,
-            'en' => @Setting::key(Setting::ABOUT)->locale(Setting::EN)->first()->json_value, 
+            'en' => @Setting::key(Setting::ABOUT)->locale(Setting::EN)->first()->json_value,
         ];
 
 
         return view('admin.settings.about.index', compact('about'));
     }
-    
+
     public function edit(Request $request)
     {
         $lang  = $request->input('lang', 'id');
@@ -55,7 +56,7 @@ class AboutController extends Controller
             ))
         ]);
 
-        return redirect()->route('admin.settings.about.index')->with([
+        return redirect()->route('admin.settings.about.edit')->with([
             'success' => 'About has been updated :)'
         ]);
     }
