@@ -121,8 +121,6 @@
                 </div>
             </div>
 
-
-
             <h1 class="text-2xl md:text-3xl font-normal md:mt-10 mb-2 font-primary italic">You might also like</h1>
             <div class="swiper mySwiper h-[260px] lg:h-[350px]">
                 <div class="swiper-wrapper">
