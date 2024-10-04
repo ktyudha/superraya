@@ -31,9 +31,9 @@ export default {
             ...defaultTheme.screens,
         },
         extend: {
-            // fontFamily: {
-            //     sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-            // },
+            fontFamily: {
+                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+            },
             colors: {
                 current: "currentColor",
                 transparent: "transparent",

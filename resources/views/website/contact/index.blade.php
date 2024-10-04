@@ -26,42 +26,69 @@
                 <p>Telephone: 0858 4825 0548</p>
             </div>
 
-            <form class="w-full mx-auto">
+            <form role="form" method="post" action="{{ route('contact.store') }}" class="w-full mx-auto">
+                {{ csrf_field() }}
                 <p class="mb-4">Having trouble or any feedback?<br> Send us a message:</p>
+
+                @if (Session::has('status'))
+                    <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+                        role="alert">
+                        <span class="font-medium">Success alert!</span> {{ session('message') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                        role="alert">
+                        <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <span class="font-medium">Ensure that these requirements are met:</span>
+                            <ul class="mt-1.5 list-disc list-inside">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
 
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-5 group">
-                        <input type="text" name="floating_first_name" id="floating_first_name"
+                        <input type="text" name="name_first" id="name_first" value="{{ old('name_first') }}"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
-                            placeholder=" " required />
-                        <label for="floating_first_name"
+                            placeholder=" " />
+                        <label for="name_first"
                             class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First
                             name</label>
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
-                        <input type="text" name="floating_last_name" id="floating_last_name"
+                        <input type="text" name="name_last" id="name_last" value="{{ old('name_last') }}"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
-                            placeholder=" " required />
-                        <label for="floating_last_name"
+                            placeholder=" " />
+                        <label for="name_last"
                             class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last
                             name</label>
                     </div>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
-                    <input type="email" name="floating_email" id="floating_email"
+                    <input type="email" name="email" id="email" value="{{ old('email') }}"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
-                        placeholder=" " required />
-                    <label for="floating_email"
+                        placeholder=" " />
+                    <label for="email"
                         class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
                     </label>
                 </div>
 
                 <div class="relative z-0 w-full mb-5 group">
-                    <label for="topic" class="sr-only">Topic</label>
-                    <select id="topic" name="topic"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-                        required>
-                        <option selected>Topic</option>
+                    <label for="subject" class="sr-only">Topic</label>
+                    <select id="subject" name="subject"
+                        class="bblock py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer">
+                        <option value="" selected>Topic</option>
                         <option value="General Inquires">General Inquires</option>
                         <option value="My Order">My Order</option>
                         <option value="Request for Collaboration">Request for Collaboration</option>
@@ -69,10 +96,10 @@
                 </div>
 
                 <div class="relative z-0 w-full mb-5 group">
-                    <input type="text" name="floating_message" id="floating_message"
+                    <input type="text" name="message" id="message"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-slate-900 border-slate-900 peer"
-                        placeholder=" " required />
-                    <label for="floating_message"
+                        placeholder=" " value="{{ old('message') }}" />
+                    <label for="message"
                         class="peer-focus:font-medium absolute text-sm text-slate-900  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-slate-900  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
                 </div>
                 <button type="submit" class="w-full bg-slate-900 py-4 text-white">Send Message</button>
