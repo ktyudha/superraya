@@ -5,7 +5,7 @@
     @include('website.partials.styles')
 </head>
 
-<body>
+<body class="bg-white text-slate-900">
     {{--  @include('website.partials.topbar')  --}}
 
     @include('website.partials.content')

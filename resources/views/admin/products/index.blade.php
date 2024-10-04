@@ -74,11 +74,11 @@
                             <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
 
                                 @php
-                                    $classes = ['primary', 'success', 'warning', 'secondary'];
+                                    $classes = ['primary', 'success', 'secondary'];
                                 @endphp
 
                                 <p
-                                    class="inline-flex rounded-full bg-{{ $classes[@$model->category->id % 4] }} bg-opacity-10 px-3 py-1 text-sm font-medium text-{{ $classes[@$model->category->id % 4] }} ">
+                                    class="inline-flex rounded-full bg-{{ $classes[@$model->category->id % 3] }} bg-opacity-10 px-3 py-1 text-sm font-medium text-{{ $classes[@$model->category->id % 3] }} ">
                                     {{ @$model->category->name ?? 'No Category' }}
                                 </p>
                             </td>

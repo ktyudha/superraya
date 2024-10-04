@@ -1,5 +1,5 @@
-<div class="fixed bottom-0 bg-white w-full lg:hidden grid grid-cols-2">
-    <div class="bg-gray-100 border border-slate-900 flex-row gap-3 p-4">
+<div class="fixed bottom-0 bg-slate-900 w-full lg:hidden grid grid-cols-2">
+    <div class="bg-slate-900 flex-row gap-3 p-4 text-white mx-auto">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle hi" />
         <div class="drawer-content lg:hidden">
             <label for="my-drawer-2">
@@ -26,7 +26,7 @@
             </ul>
         </div>
     </div>
-    <div class="bg-gray-100 border border-slate-900 flex-row gap-3 p-4">
+    <div class="bg-slate-900 flex-row gap-3 p-4 mx-auto text-white">
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle hi" />
         <div class="drawer-content lg:hidden">
             <label for="my-drawer-3">
