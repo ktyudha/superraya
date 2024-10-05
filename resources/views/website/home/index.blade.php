@@ -89,7 +89,7 @@
         <div class="grid md:grid-cols-3 grid-cols-2 md:gap-6 gap-3">
             @foreach ($products as $key => $product)
                 <a href="{{ route('product.show', $product->slug) }}" class="card card-compact w-full rounded-none">
-                    <img src="{{ asset(@$product->image) }}" alt="{{ $product->title }}" />
+                    <img src="{{ asset('storage/' . @$product->image) }}" alt="{{ $product->title }}" />
                     <div class="my-3.5">
                         <h2 class="pl-0 text-left lg:text-3xl md:text-xl text-lg font-semibold">{{ $product->title }}</h2>
                     </div>
@@ -117,7 +117,7 @@
                         @foreach ($services as $key => $service)
                             <div class="swiper-slide lg:h-50 md:h-38 h-32">
                                 <a href="{{ route('service.show', $service->slug) }}" class="flex">
-                                    <img src="{{ asset('static/website/images/product/produk-1.png') }}"
+                                    <img src="{{ asset('storage/' . $service->image) }}"
                                         class="object-cover lg:h-48 lg:w-48 md:h-36 md:w-36 h-32 w-32" alt="Produk" />
                                     <div class="pl-2 text-left">
                                         <h2 class=" text-lg  font-semibold uppercase">{{ $service->title }}</h2>
