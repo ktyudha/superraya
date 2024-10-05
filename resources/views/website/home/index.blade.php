@@ -1,6 +1,6 @@
 @extends('website.layout')
 
-@section('title', 'SUPERRAYA™')
+@section('title', 'Home')
 
 @section('metadata')
     <meta name="title" content="Super Raya">
