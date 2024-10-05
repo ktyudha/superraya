@@ -5,7 +5,7 @@
 @endsection
 
 @section('metadata')
-    <meta name="title" content="{{ @$model->title }}">
+    <meta name="title" content="{{ @$model->title }} - Services">
     <meta name="description" content="{{ @$model->description_short }}">
 @stop
 

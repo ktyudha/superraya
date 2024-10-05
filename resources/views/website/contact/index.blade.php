@@ -1,10 +1,10 @@
 @extends('website.layout')
 
-@section('title', 'SUPERRAYA™')
+@section('title', 'Contact')
 
 @section('metadata')
-    <meta name="title" content="Super Raya">
-    <meta name="description" content="Halaman Utama Superraya">
+    <meta name="title" content="Contact">
+    {{--  <meta name="description" content="Halaman Utama Superraya">  --}}
 @stop
 
 
