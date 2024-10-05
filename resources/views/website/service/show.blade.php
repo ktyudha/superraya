@@ -35,7 +35,7 @@
     {{--  Hero  --}}
     <section id="home" class="lg:mb-24 mb-16">
         <div class="hero min-h-screen"
-            style=" background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url({{ asset('static/website/images/product/produk-1.png') }})">
+            style=" background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url({{ asset('storage/' . @$model->image) }})">
             <div class="group absolute breadcrumb text-base lg:mb-12 text-white top-20 left-40 lg:block hidden">
                 <ul class="flex gap-2">
                     <li class="hover:underline"><a href="{{ route('landing.index') }}">Home</a></li>
