@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Website\Service;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,11 +10,15 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        return view('website.service.index');
+        $data['services'] = Service::orderBy('id', 'desc')->get();
+        return view('website.service.index', $data);
     }
 
-    public function show(string $id)
+    public function show($slug)
     {
-        return view('website.service.show');
+        $data['model'] = Service::where('slug', $slug)->first();
+        $data['services'] = Service::orderBy('id', 'desc')->get();
+        // $data['services'] = Service::where('product_category_id', $data['model']->product_category_id)->get();
+        return view('website.service.show', $data);
     }
 }

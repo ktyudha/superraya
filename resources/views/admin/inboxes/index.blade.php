@@ -77,7 +77,7 @@
                                 @endphp
 
                                 <p
-                                    class="inline-flex mt-3 rounded-full bg-{{ $classes[@$key % 3] }} bg-opacity-10 px-3 py-1 text-sm font-medium text-{{ $classes[@$key % 3] }} ">
+                                    class="inline-flex text-center mt-3 rounded-full bg-{{ $classes[@$key % 3] }} bg-opacity-10 px-3 py-1 text-sm font-medium text-{{ $classes[@$key % 3] }} ">
                                     {{ @$model->subject ?? 'No Subject' }}
                                 </p>
 

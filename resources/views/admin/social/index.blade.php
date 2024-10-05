@@ -61,7 +61,7 @@
                             </td>
                             <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                                 @php
-                                    $classes = ['primary', 'success', 'warning', 'secondary'];
+                                    $classes = ['primary', 'success', 'secondary'];
                                 @endphp
 
                                 <a href="{{ $model['url'] }}" target="_blank"

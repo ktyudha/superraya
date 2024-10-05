@@ -3,8 +3,11 @@
 namespace App\Http\Middleware\Web;
 
 
-use App\Models\User;
 use Closure;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Setting;
+use App\Models\SocialMedia;
 
 class ShareVariable
 {
@@ -17,15 +20,17 @@ class ShareVariable
      */
     public function handle($request, Closure $next)
     {
+        $year = Carbon::now()->year;
         $user   = @User::all();
-        // $setting            = @Setting::whereIn('key', ['name', 'email', 'phone', 'whatsapp', 'address', 'gmaps', 'logo', 'logo_gray', 'icon', 'ogimage', 'pixel', 'analytics', 'file'])->get();
-        // $SocialMedia        = @SocialMedia::all();
-        // $about              = @Setting::key(Setting::ABOUT)->locale('id')->first()->json_value;
+        $setting            = @Setting::whereIn('key', ['name', 'email', 'phone', 'whatsapp', 'address', 'gmaps', 'logo', 'logo_gray', 'icon', 'ogimage', 'pixel', 'analytics', 'file'])->get();
+        $socialMedia        = @SocialMedia::orderBy('id', 'desc')->get();
+        $about              = @Setting::key(Setting::ABOUT)->locale('id')->first()->json_value;
 
         view()->share(compact('user'));
-        // view()->share(compact('setting'));
-        // view()->share(compact('SocialMedia'));
-        // view()->share(compact('about'));
+        view()->share(compact('setting'));
+        view()->share(compact('socialMedia'));
+        view()->share(compact('about'));
+        view()->share(compact('year'));
 
         return $next($request);
     }

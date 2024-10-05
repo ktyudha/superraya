@@ -11,9 +11,11 @@
 @section('content')
 
     <div class="w-full mt-20">
-        <iframe class="w-full h-1/2"
+        {!! @$setting->firstWhere('key', 'gmaps')->value !!}
+
+        {{--  <iframe class="w-full h-1/2"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.461650015716!2d112.54941697568583!3d-7.52451899248848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7875ebc516172b%3A0xba30d6d6d15f63d5!2sBengkel%20Super%20Raya!5e0!3m2!1sid!2sid!4v1727423558357!5m2!1sid!2sid"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  --}}
     </div>
 
     {{--  Form  --}}
@@ -21,9 +23,9 @@
         <div class="grid lg:grid-cols-2 grid-cols-1">
             <div class="mb-6">
                 <h1 class="md:text-5xl text-3xl font-primary italic lg:mb-2 md:mb-6 mb-6">Contact</h1>
-                <p class="mb-3">FHG2+5QX, Mojosulur, Kec. Mojosari, Kabupaten Mojokerto, Jawa Timur 61382</p>
-                <p>E-mail: sales.superraya@gmail.com</p>
-                <p>Telephone: 0858 4825 0548</p>
+                <p class="mb-3">{{ @$setting->firstWhere('key', 'address')->value }}</p>
+                <p>{{ @$setting->firstWhere('key', 'email')->value }}</p>
+                <p>{{ @$setting->firstWhere('key', 'whatsapp')->value }}</p>
             </div>
 
             <form role="form" method="post" action="{{ route('contact.store') }}" class="w-full mx-auto">

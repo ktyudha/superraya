@@ -2,6 +2,10 @@
 
 @section('title', 'Create Social Media')
 
+@php
+    $types = ['facebook', 'twitter', 'instagram', 'linkedin', 'youtube', 'tiktok'];
+@endphp
+
 @section('content')
 
     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -62,14 +66,14 @@
                         </label>
                         <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-white dark:bg-form-input">
                             <select
-                                class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 pl-5 pr-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
+                                class="relative z-20 w-full appearance-none rounded border capitalize border-stroke bg-transparent py-3 pl-5 pr-12 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
                                 :class="isOptionSelected && 'text-black dark:text-white'" @change="isOptionSelected = true"
                                 name="type" id="type">
-                                <option value="facebook">Facebook</option>
-                                <option value="twitter">Twitter</option>
-                                <option value="instagram">Instagram</option>
-                                <option value="linkedin">Linkedin</option>
-                                <option value="youtube">Youtube</option>
+                                @foreach ($types as $key => $type)
+                                    <option value="{{ $type }}" {{ @$model->type == $type ? 'selected' : '' }}>
+                                        {{ $type }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

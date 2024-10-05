@@ -19,8 +19,8 @@
                 <div class="text-sm">
                     <h2 class="uppercase text-sm font-bold ml-2">Sort By</h2>
                     <ul class="menu [&_li>*]:p-0 font-normal">
-                        <li class="hover:underline"><a href="">Latest Arrival</a></li>
-                        <li class="hover:underline"><a href="">Popular</a></li>
+                        <li class="my-0.5 hover:underline"><a href="">Latest Arrival</a></li>
+                        <li class="my-0.5 hover:underline"><a href="">Popular</a></li>
                     </ul>
                 </div>
             </ul>
@@ -46,19 +46,19 @@
                 <div class="text-sm">
                     <h2 class="uppercase text-sm font-bold ml-2">Categories</h2>
                     <ul class="menu [&_li>*]:p-0 font-normal">
-                        <li class="hover:underline"><a href="">Industri</a></li>
-                        <li class="hover:underline"><a href="">Pertanian</a></li>
-                        <li class="hover:underline"><a href="">Peternakan</a></li>
-                        <li class="hover:underline"><a href="">Pangan</a></li>
+                        @foreach ($categories as $key => $category)
+                            <li class="my-0.5 hover:underline"><a href="">{{ $category['name'] }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
 
                 <div class="text-sm">
                     <h2 class="uppercase text-sm font-bold ml-2">Best Seller</h2>
                     <ul class="menu [&_li>*]:p-0 font-normal">
-                        <li class="hover:underline"><a href="">Mesin Press Kardus</a></li>
-                        <li class="hover:underline"><a href="">Mesin Penggoreng Singkong</a></li>
-                        <li class="hover:underline"><a href="">Mesin Penimpil Jagung</a></li>
+                        @foreach ($products_best as $key => $best)
+                            <li class="my-0.5 hover:underline"><a
+                                    href="{{ route('product.show', $best->slug) }}">{{ $best['title'] }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 {{--  <div class="mt-auto px-4 flex justify-between">

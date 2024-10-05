@@ -1,10 +1,33 @@
 @extends('website.layout')
 
-@section('title', 'SUPERRAYA™')
+@section('title')
+    {{ @$model->title }} - Services
+@endsection
 
 @section('metadata')
-    <meta name="title" content="Super Raya">
-    <meta name="description" content="Halaman Utama Superraya">
+    <meta name="title" content="{{ @$model->title }}">
+    <meta name="description" content="{{ @$model->description_short }}">
+@stop
+
+@section('styles')
+    <style>
+        h2 {
+            font-weight: bold !important;
+            font-size: 1.125rem !important;
+            /* default for smaller screens */
+            margin-bottom: 1.5rem !important;
+            /* default margin for smaller screens */
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 1.875rem !important;
+                /* larger text on medium screens */
+                margin-bottom: 3rem !important;
+                /* larger margin-bottom on medium screens */
+            }
+        }
+    </style>
 @stop
 
 
@@ -19,7 +42,7 @@
                     <span>/</span>
                     <li class="hover:underline"><a href="{{ route('service.index') }}">Service</a></li>
                     <span>/</span>
-                    <li><a>Mesin Press Kardus</a></li>
+                    <li><a>{{ @$model->title }}</a></li>
                 </ul>
             </div>
         </div>
@@ -30,19 +53,22 @@
     {{--  Product  --}}
     <section id="products" class="lg:mx-40 mx-4 md:mb-32 mb-16">
         <div class="md:mb-16 mb-8">
-            <h1 class="md:text-4xl text-3xl font-bold">HALLO! WHICH PABLO ARE YOU TODAY?</h1>
+            <h1 class="md:text-4xl text-3xl font-bold uppercase">{{ @$model->title }}</h1>
             <div class="flex gap-5 mt-2">
-                <p class="uppercase text-[#B6B2B2] text-xs font-semibold">NOV 26, 2022</p>
+                <p class="uppercase text-[#B6B2B2] text-xs font-semibold">
+                    {{ @$model->created_at->format('M d, Y') }}</p>
                 <p class="uppercase text-[#B6B2B2] text-xs font-semibold">PENGELASAN</p>
             </div>
         </div>
 
         <div class="body text-justify">
-            <h2 class="font-bold md:text-3xl text-lg md:mb-12 mb-6">The project, titled "WHICH PABLO ARE YOU TODAY?",
+            <div>{!! @$model->description !!}</div>
+            {{--  <h2 class="font-bold md:text-3xl text-lg md:mb-12 mb-6">The project, titled "WHICH PABLO ARE YOU TODAY?",
                 features a
                 unique collection of shoes, beanies, baseball caps, socks, and
                 graphic tees that brings together the identities of both Boy Pablo
                 and Compass® through their styles.</h2>
+
             <p class="md:text-md text-sm">The collaboration kicked off with Boy Pablos first album, Wachito Rico, which
                 contains 13
                 new songs, each
@@ -56,7 +82,7 @@
                 commendable how vulnerable Muñoz allows himself to be in what is his first album, reflecting not only his
                 Latin heritage
                 but also his struggles with anxiety produced from being propelled into fame at the age of 19, when he first
-                went on tour.</p>
+                went on tour.</p>  --}}
 
             <div class="image md:mt-16 mt-8">
                 <div class="grid grid-cols-3 lg:gap-9 lg:mb-9 gap-4 mb-4 ">
@@ -75,52 +101,19 @@
     {{--  End Service  --}}
 
     {{--  You Might Also Light  --}}
-    <section class="you-also-might md:mt-20 mt-20 lg:mx-40 mx-4 mb-16">
+    {{--  <section class="you-also-might md:mt-20 mt-20 lg:mx-40 mx-4 mb-16">
         <h1 class="text-2xl md:text-3xl font-normal md:mt-10 mb-2 font-primary italic">You might also like</h1>
         <div class="swiper mySwiper h-[260px] lg:h-[400px]">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
+                @foreach (@$services as $key => $value)
+                    <div class="swiper-slide">
+                        <img src="{{ asset('storage/' . $value->image) }}" class="w-full" alt="Produk" />
+                        <div class="my-3.5">
+                            <h3 class="pl-0 text-sm font-normal text-center">{{ @$value->title }}</h3>
+                            <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('static/website/images/product/img-produk.png') }}" class="w-full" alt="Produk" />
-                    <div class="my-3.5">
-                        <h2 class="pl-0 text-sm font-normal text-center">Mesin Press Kardus / Kertas</h2>
-                        <p class="pl-0 text-[10px] font-bold text-center mx-auto uppercase">Industri</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="hidden lg:block">
                 <div class="swiper-button-prev"></div>
@@ -128,7 +121,7 @@
             </div>
             <div class="swiper-pagination block lg:hidden"></div>
         </div>
-    </section>
+    </section>  --}}
     {{--  End You Might Also Light  --}}
 
 

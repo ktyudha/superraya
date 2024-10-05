@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Website\Home;
 
-use App\Http\Controllers\Controller;
+use App\Models\Slider;
 use Illuminate\Http\Request;
+use App\Models\Product\Product;
+use App\Http\Controllers\Controller;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
@@ -12,7 +15,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('website.home.index');
+        $data['slider'] = Slider::latest()->take(1)->first();
+        $data['products'] = Product::latest()->take(6)->get();
+        $data['services'] = Service::latest()->take(6)->get();
+        // dd($data);
+        return view('website.home.index', $data);
     }
 
     /**

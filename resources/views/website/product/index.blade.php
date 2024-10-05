@@ -2,10 +2,9 @@
 
 @section('title', 'SUPERRAYA™')
 
-@section('metadata')
-    <meta name="title" content="Bengkel Super Raya Teknik">
+{{--  @section('metadata')
     <meta name="description" content="Bengkel Super Raya Teknik">
-@stop
+@stop  --}}
 
 
 @section('content')
