@@ -1,10 +1,12 @@
 @extends('website.layout')
 
-@section('title', 'SUPERRAYA™')
+@section('title')
+    {{ @$model->title }} - Products
+@endsection
 
 @section('metadata')
-    <meta name="title" content="Bengkel Super Raya Teknik">
-    <meta name="description" content="Bengkel Super Raya Teknik">
+    <meta name="title" content="{{ @$model->title }} - Products">
+    <meta name="description" content="{!! substr(strip_tags(@$model->description), 0, 200) !!}">
 @stop
 
 @section('styles')

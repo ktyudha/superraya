@@ -5,7 +5,7 @@
 @endsection
 
 @php
-    $types = ['facebook', 'twitter', 'instagram', 'linkedin', 'youtube'];
+    $types = ['facebook', 'twitter', 'instagram', 'linkedin', 'youtube', 'tiktok'];
 @endphp
 
 @section('content')

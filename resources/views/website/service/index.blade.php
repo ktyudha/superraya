@@ -1,10 +1,10 @@
 @extends('website.layout')
 
-@section('title', 'SUPERRAYA™')
+@section('title', 'Services')
 
 @section('metadata')
-    <meta name="title" content="Super Raya">
-    <meta name="description" content="Halaman Utama Superraya">
+    <meta name="title" content="Services">
+    {{--  <meta name="description" content="Halaman Utama Superraya">  --}}
 @stop
 
 
@@ -12,9 +12,9 @@
     {{--  Hero  --}}
     <section id="home" class="lg:mb-24 mb-16">
         <div class="hero min-h-screen"
-            style=" background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url({{ asset('static/website/images/product/produk-1.png') }})">
+            style=" background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url({{ asset('storage/' . @$services[0]->image) }})">
             <div class="group absolute bottom-6 md:left-40 left-4 p-2 items-end justify-end">
-                <a href="{{ route('service.show', 1) }}"
+                <a href="{{ route('service.show', @$services[0]->slug) }}"
                     class="btn btn-oval bg-transparent hover:bg-transparent hover:drop-shadow-2xl text-white text-lg">
                     <span class="font-primary font-normal ">Discover</span>
                     <i class="fa-solid fa-arrow-right"></i>
@@ -33,46 +33,16 @@
         <h1 class="md:text-5xl text-3xl font-primary italic mb-9">Discover our remarkable services</h1>
 
         <div class="grid md:grid-cols-3 grid-cols-2 md:gap-6 gap-3">
-            <a href="{{ route('service.show', 1) }}" class="card card-compact w-full rounded-none">
-                <img src="{{ asset('static/website/images/product/produk-1.png') }}" alt="Produk" />
-                <div class="my-3.5">
-                    <h2 class="pl-0 text-left lg:text-3xl md:text-xl text-lg font-semibold mb-2.5">Celebrating 3.4.7 Quarter
-                        of a
-                        Century</h2>
-                    <p class="text-md mb-auto">COMPASS® is thrilled to announce a special limited- edition
-                        collaboration with ADGI (Asosiasi Desain Grafis Indonesia)</p>
-                </div>
-            </a>
-            <a href="{{ route('service.show', 2) }}" class="card card-compact w-full rounded-none">
-                <img src="{{ asset('static/website/images/product/produk-1.png') }}" alt="Produk" />
-                <div class="my-3.5">
-                    <h2 class="pl-0 text-left lg:text-3xl md:text-xl text-lg font-semibold mb-2.5">Celebrating 3.4.7 Quarter
-                        of a
-                        Century</h2>
-                    <p class="text-md mb-auto">COMPASS® is thrilled to announce a special limited- edition
-                        collaboration with ADGI (Asosiasi Desain Grafis Indonesia)</p>
-                </div>
-            </a>
-            <a href="{{ route('service.show', 3) }}" class="card card-compact w-full rounded-none">
-                <img src="{{ asset('static/website/images/product/produk-1.png') }}" alt="Produk" />
-                <div class="my-3.5">
-                    <h2 class="pl-0 text-left lg:text-3xl md:text-xl text-lg font-semibold mb-2.5">Celebrating 3.4.7 Quarter
-                        of a
-                        Century</h2>
-                    <p class="text-md mb-auto">COMPASS® is thrilled to announce a special limited- edition
-                        collaboration with ADGI (Asosiasi Desain Grafis Indonesia)</p>
-                </div>
-            </a>
-            <a href="{{ route('service.show', 3) }}" class="card card-compact w-full rounded-none">
-                <img src="{{ asset('static/website/images/product/produk-1.png') }}" alt="Produk" />
-                <div class="my-3.5">
-                    <h2 class="pl-0 text-left lg:text-3xl md:text-xl text-lg font-semibold mb-2.5">Celebrating 3.4.7 Quarter
-                        of a
-                        Century</h2>
-                    <p class="text-md mb-auto">COMPASS® is thrilled to announce a special limited- edition
-                        collaboration with ADGI (Asosiasi Desain Grafis Indonesia)</p>
-                </div>
-            </a>
+            @foreach (@$services as $key => $service)
+                <a href="{{ route('service.show', $service->slug) }}" class="card card-compact w-full rounded-none">
+                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" />
+                    <div class="my-3.5">
+                        <h2 class="pl-0 text-left lg:text-3xl md:text-xl text-lg font-semibold mb-2.5">
+                            {{ $service->title }}</h2>
+                        <p class="text-md mb-auto">{!! nl2br($service->description_short) !!}</p>
+                    </div>
+                </a>
+            @endforeach
         </div>
     </section>
     {{--  End Product  --}}
