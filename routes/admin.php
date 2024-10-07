@@ -25,9 +25,9 @@ use App\Http\Controllers\Admin\Product\ProductCategoryController;
 use App\Http\Controllers\Admin\SocialMedia\SocialMediaController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
-if ($this->app->environment('production')) {
-    \URL::forceScheme('https');
-}
+// if ($this->app->environment('production')) {
+//     \URL::forceScheme('https');
+// }
 // Route::middleware('guest')->group(function () {
 //     Route::get('register', [RegisteredUserController::class, 'create'])
 //         ->name('register');
