@@ -14,10 +14,20 @@
 
 <script src="{{ asset('static/website/js/script.js') }}"></script>
 
-{{--  <script>
-    setTimeout(() => {
-        $(".preloader").css("display", "none");
-    }, 5000);
-</script>  --}}
+
+{{--  Google Tag  --}}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ1D2DVDJM"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', '{{ @$setting->firstWhere('key', 'analytics')->value }}');
+    {{--  gtag('config', 'G-EZ1D2DVDJM');  --}}
+</script>
+
 
 @yield('scripts')

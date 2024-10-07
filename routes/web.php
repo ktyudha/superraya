@@ -9,9 +9,9 @@ use App\Http\Controllers\Website\Product\ProductController;
 use App\Http\Controllers\Website\Service\ServiceController;
 
 
-if ($this->app->environment('production')) {
-    \URL::forceScheme('https');
-}
+// if ($this->app->environment('production')) {
+//     \URL::forceScheme('https');
+// }
 
 Route::get('/', [HomeController::class, 'index'])->name('landing.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
