@@ -13,7 +13,7 @@
 @section('content')
     {{--  Hero  --}}
     <section id="home" class="mb-16">
-        <div class="hero min-h-screen" style="background-image: url({{ asset('storage/' . $slider->image) }})">
+        <div class="hero min-h-screen" style="background-image: url({{ asset('storage/' . @$slider->image) }})">
             <div class="bg-opacity-60 bg-blur"></div>
             <div class="hero-content text-neutral-content text-center">
                 <div class="max-w-lg">

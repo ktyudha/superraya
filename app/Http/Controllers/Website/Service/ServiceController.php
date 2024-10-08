@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Website\Service;
 
-use App\Models\Service;
+use App\Models\Service\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

@@ -156,14 +156,13 @@ class ProductController extends Controller
             foreach ($request->images as $key => $value) {
                 if ($value) {
                     $image                = new ProductImage();
-                    $imagex = $value->store('products');
+                    $imagex               = $value->store('products');
                     $image->product_id    = $post->id;
                     $image->image         = $imagex;
                     $image->save();
                 }
             }
         }
-
 
         if ($request->image) {
 

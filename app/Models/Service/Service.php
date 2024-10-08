@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Service;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -39,5 +39,10 @@ class Service extends Model
     public function scopeKeunggulan($query)
     {
         return $query->where("type", "keunggulan");
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ServiceImage::class);
     }
 }
