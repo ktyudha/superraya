@@ -107,6 +107,79 @@
                         <img src="{{ asset('static/admin/images/default.png') }}" class="rounded max-w-xs" alt="photo">
                     </div>
 
+                    <hr class="mb-6">
+
+                    <button type="button" onclick="showImageDialog()"
+                        class="flex justify-center rounded bg-primary p-3 mb-4 font-medium text-gray hover:bg-opacity-90">
+                        <i class="fa-regular fa-image text-lg"></i>
+                        <span class="my-auto ml-3"> Add Image Product</span>
+                    </button>
+
+                    <div id="added-product">
+                        {{--  <div id="layout-product-0">
+                            <button type="button" onclick="imageRemove(this,0)"
+                                class="justify-center rounded bg-red-600 mt-3 py-1 px-3 font-medium text-gray hover:bg-opacity-90">
+                                <i class="fa-solid fa-trash text-lg"></i>
+                                <span class="my-auto ml-1"> Delete Layout</span>
+                            </button>
+
+                            <div class="my-6 grid lg:grid-cols3 md:grid-cols-3 grid-cols-1 gap-3">
+                                <div class="product-images">
+                                    <input
+                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                        aria-describedby="file_input_help" id="file input" type="file" name="images[]"
+                                        onchange="document.querySelector('.product-images img#photo-0').src = window.URL.createObjectURL(this.files[0])"
+                                        accept="image/*">
+                                    <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
+                                        PNG, JPG, JPEG (MAX. 2MB).</p>
+                                    <img src="{{ asset('static/admin/images/default.png') }}"
+                                        class="rounded object-cover h-48 w-48" alt="photo" id="photo-0">
+                                </div>
+                                <div class="product-images">
+                                    <input
+                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                        aria-describedby="file_input_help" id="file input" type="file"
+                                        name="images[]"
+                                        onchange="document.querySelector('.product-images img#photo-0').src = window.URL.createObjectURL(this.files[0])"
+                                        accept="image/*">
+                                    <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic"
+                                        id="file_input_help">
+                                        PNG, JPG, JPEG (MAX. 2MB).</p>
+                                    <img src="{{ asset('static/admin/images/default.png') }}"
+                                        class="rounded object-cover h-48 w-48" alt="photo" id="photo-0">
+                                </div>
+                                <div class="product-images">
+                                    <input
+                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                        aria-describedby="file_input_help" id="file input" type="file"
+                                        name="images[]"
+                                        onchange="document.querySelector('.product-images img#photo-0').src = window.URL.createObjectURL(this.files[0])"
+                                        accept="image/*">
+                                    <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic"
+                                        id="file_input_help">
+                                        PNG, JPG, JPEG (MAX. 2MB).</p>
+                                    <img src="{{ asset('static/admin/images/default.png') }}"
+                                        class="rounded object-cover h-48 w-48" alt="photo" id="photo-0">
+                                </div>
+                            </div>
+                        </div>  --}}
+                    </div>
+
+                    <div id="layout-image-modal" class="modal z-999">
+                        <a href="#" rel="modal:close" id="close-modal"></a>
+                        <div class="grid grid-cols-3">
+                            <button onclick="imageLayout(1)">
+                                <h3>Layout 1</h3>
+                            </button>
+                            <button onclick="imageLayout(2)">
+                                <h3>Layout 2</h3>
+                            </button>
+                            <button onclick="imageLayout(3)">
+                                <h3>Layout 3</h3>
+                            </button>
+                        </div>
+                    </div>
+
                     <button type="submit"
                         class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                         Create
@@ -130,5 +203,76 @@
         formAbout.addEventListener('submit', (e) => {
             textAreaDescription.value = editor.root.innerHTML
         })
+    </script>
+
+    <script>
+        function showImageDialog() {
+            $("#layout-image-modal").modal({
+                fadeDuration: 300,
+                backdrop: false, // Menghilangkan efek pada latar belakang
+                keyboard: false
+            });
+        }
+
+        function closeImageDialog() {
+            $("#close-modal").trigger('click');
+        }
+
+        //  showImageDialog();
+    </script>
+
+    <script type="text/javascript">
+        let indexLayout = 1;
+        let indexImage = 1;
+
+
+        function imageLayout(count) {
+            closeImageDialog();
+            var html = ` <div id="layout-product-${indexLayout}">
+                                <input type="hidden" name="data[type][]" value="${count}">
+                                <button type="button" onclick="removeLayout(this,${indexLayout})"
+                                    class="justify-center rounded bg-red-600 py-1 px-3 font-medium text-gray hover:bg-opacity-90">
+                                    <i class="fa-solid fa-trash text-lg"></i>
+                                    <span class="my-auto ml-1"> Delete Layout</span>
+                                </button>
+                                <div class="my-6 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
+                            `;
+
+            while (indexImage <= count) {
+                html += imageDetail(indexLayout);
+            }
+            html += `</div></div>`;
+
+            $('#added-product').append(html);
+            indexImage = 1;
+            indexLayout++;
+        }
+
+        function removeLayout(that, id) {
+            $(that).parents(`#layout-product-${id}`).remove();
+        }
+
+        function imageDetail(indexLayout) {
+            indexImage++;
+
+            var html = ` <div class="product-images mb-3">
+                                <input
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                    aria-describedby="file_input_help" id="file input" type="file" name="data[images][]"
+                                    onchange="document.querySelector('.product-images img#layout-${indexLayout}-photo-${indexImage}').src = window.URL.createObjectURL(this.files[0])"
+                                    accept="image/*">
+                                <p class="mt-1 mb-3 block text-xs font-medium text-red-500 italic" id="file_input_help">
+                                    PNG, JPG, JPEG (MAX. 2MB).</p>
+                                <img src="{{ asset('static/admin/images/default.png') }}" class="rounded object-cover h-48 w-48"
+                                    alt="photo" id="layout-${indexLayout}-photo-${indexImage}">
+
+                                {{--  <button type="button" onclick="imageRemove(this)"
+                                    class="justify-center rounded bg-red-600 mt-3 py-1 px-3 font-medium text-gray hover:bg-opacity-90">
+                                    <i class="fa-solid fa-trash text-lg"></i>
+                                    <span class="my-auto ml-1"> Delete</span>
+                                </button>  --}}
+                            </div>`;
+            return html;
+        }
     </script>
 @endsection
