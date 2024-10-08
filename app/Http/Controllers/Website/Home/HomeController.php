@@ -6,7 +6,7 @@ use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Models\Product\Product;
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\Service\Service;
 
 class HomeController extends Controller
 {
