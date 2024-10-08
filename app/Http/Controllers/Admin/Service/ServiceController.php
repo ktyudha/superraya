@@ -213,24 +213,6 @@ class ServiceController extends Controller
             }
         }
 
-        // if ($request->hasFile('image')) {
-
-        //     $payload = $request->all();
-
-        //     $newImage = $request->file('image')->store('services');
-        //     $payload['image'] = $newImage;
-
-        //     if ($newImage) {
-        //         if (Storage::exists($service->image)) {
-        //             Storage::delete($service->image);
-        //         }
-        //     }
-
-        //     $service->update($payload);
-        // } else {
-        //     $service->update($request->all());
-        // }
-
         return redirect()->route('admin.services.index')->with(['status' => 'success', 'message' => 'Update service successfully.']);
     }
 
