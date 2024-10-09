@@ -63,7 +63,7 @@
 <dialog id="my_modal_2" class="modal">
     <div class="modal-box rounded-none">
         <div class="bg-white border-2 border-gray-200 hover:border-slate-900 py-1 px-6">
-            <form action="" class="my-auto flex gap-4">
+            <form action="{{ route('product.index') }}" class="my-auto flex gap-4">
                 <button type="submit" class="my-auto">
                     <i class="fa-solid fa-magnifying-glass text-md"></i>
                 </button>
