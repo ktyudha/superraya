@@ -94,10 +94,13 @@ class InboxController extends Controller
         $inbox->respond = $request->respond;
 
         if ($inbox->save()) {
-            Mail::raw($request->respond, function ($message) use ($request) {
+            Mail::raw($request->respond, function ($message) use ($request, $inbox) {
                 $message->to($request->email);
-                $message->from('email@compro.test');
-                $message->subject('Inbox Reply');
+                $message->from(env('MAIL_USERNAME'));
+                $message->subject('Re: ' . $inbox->subject);
+
+                $message->getHeaders()->addTextHeader('X-Priority', '1'); // 1 = High priority
+                $message->getHeaders()->addTextHeader('Importance', 'High');
             });
 
             return redirect()->route('admin.inboxes.index')->with(['status' => 'success', 'message' => 'Reply Successfully']);
