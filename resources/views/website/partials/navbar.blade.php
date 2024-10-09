@@ -64,7 +64,7 @@
     <div class="modal-box rounded-none">
         <div class="bg-white border-2 border-gray-200 hover:border-slate-900 py-1 px-6">
             <form action="{{ route('product.index') }}" class="my-auto flex gap-4">
-                <button type="submit" class="my-auto">
+                <button type="submit" class="my-auto bg-transparent focus:border-0 focus:outline-none focus:underline">
                     <i class="fa-solid fa-magnifying-glass text-md"></i>
                 </button>
 
