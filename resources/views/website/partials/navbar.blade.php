@@ -42,16 +42,11 @@
                     <div class="mt-auto px-4 flex justify-between">
                         <h1 class="my-auto font-normal text-sm uppercase text-gray-500">CONNECT WITH US</h1>
                         <div>
-                            <a href="" target="_blank" class="text-slate-900 mx-1">
-                                <i class="fa-brands fa-youtube text-3xl"></i>
-                            </a>
-                            <a href="" target="_blank" class="text-slate-900 mx-1">
-                                <i class="fa-brands fa-tiktok text-3xl"></i>
-                            </a>
-
-                            <a href="" target="_blank" class="text-slate-900 mx-1">
-                                <i class="fa-brands fa-instagram text-3xl"></i>
-                            </a>
+                            @foreach (@$socialMedia as $social)
+                                <a href="{{ @$social->url }}" target="_blank" class="text-slate-900 mx-1">
+                                    <i class="fa-brands fa-{{ @$social->type }} text-3xl"></i>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </ul>
