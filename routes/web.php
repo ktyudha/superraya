@@ -18,9 +18,10 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/products/{slug}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products/c/{slug}', [ProductController::class, 'category'])->name('product.category');
 
 Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
-Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('/services/{slug}', [ServiceController::class, 'show'])->name('service.show');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');

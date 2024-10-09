@@ -19,7 +19,7 @@
                 <div class="text-sm">
                     <h2 class="uppercase text-sm font-bold ml-2">Sort By</h2>
                     <ul class="menu [&_li>*]:p-0 font-normal">
-                        <li class="my-0.5 hover:underline"><a href="">Latest Arrival</a></li>
+                        <li class="my-0.5 hover:underline"><a href="?sort=latest">Latest Arrival</a></li>
                         <li class="my-0.5 hover:underline"><a href="">Popular</a></li>
                     </ul>
                 </div>
@@ -47,7 +47,9 @@
                     <h2 class="uppercase text-sm font-bold ml-2">Categories</h2>
                     <ul class="menu [&_li>*]:p-0 font-normal">
                         @foreach ($categories as $key => $category)
-                            <li class="my-0.5 hover:underline"><a href="">{{ $category['name'] }}</a></li>
+                            <li class="my-0.5 hover:underline"><a
+                                    href="{{ route('product.category', $category['slug']) }}">{{ $category['name'] }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

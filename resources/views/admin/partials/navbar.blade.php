@@ -29,7 +29,7 @@
             </button>
             <!-- Hamburger Toggle BTN -->
             <a class="block flex-shrink-0 lg:hidden" href="{{ route('admin.index') }}">
-                <img src="{{ asset('static/admin/images/logo/logo-icon.svg') }}" alt="Logo" />
+                <img src="{{ asset('static/website/images/logo_hbs.png') }}" class="w-12 h-12" alt="Logo" />
             </a>
         </div>
         <div class="hidden sm:block">

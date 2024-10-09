@@ -15,6 +15,6 @@
     <meta property="og:description" content="{{ @$about->meta_description }}">
     <meta property="og:url" content="{{ route('landing.index', ['lang' => app()->getLocale()]) }}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset(@$setting->firstWhere('key', 'ogimage')->value) }}">
+    {{--  <meta property="og:image" content="{{ asset(@$setting->firstWhere('key', 'ogimage')->value) }}">  --}}
     <meta name="google-site-verification" content="_CgcQSTRZvffgg2DZE0LzEWHsnJ9sC52-u3k55OzIx8" />
 @show

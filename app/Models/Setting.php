@@ -34,6 +34,8 @@ class Setting extends Model
     public const DOCTOR = 'doctor';
     public const PRODUCT = 'product';
     public const GALLERY = 'gallery';
+    public const BANNER_SERVICE_SM = 'banner_service_sm';
+    public const BANNER_SERVICE_LG = 'banner_service_lg';
 
     protected $fillable = [
         'key',

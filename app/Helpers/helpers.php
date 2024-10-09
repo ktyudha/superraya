@@ -9,6 +9,26 @@ if (!function_exists('strlimit')) {
     }
 }
 
+if (!function_exists('whatsApp')) {
+    function whatsApp($phoneNumber)
+    {
+        // Remove any non-numeric characters
+        $phoneNumber = preg_replace('/\D/', '', $phoneNumber);
+
+        // Check if the phone number starts with '0'
+        if (substr($phoneNumber, 0, 1) === '0') {
+            // Replace the leading '0' with '62' (Indonesia's country code)
+            $phoneNumber = 'https://wa.me/62' . substr($phoneNumber, 1);
+        } elseif (substr($phoneNumber, 0, 2) !== '62') {
+            // If the number doesn't start with '62' or '0', add '62' as the default country code
+            $phoneNumber = 'https://wa.me/62' . $phoneNumber;
+        }
+
+        return $phoneNumber;
+    }
+}
+
+
 function crypto_rand_secure($min, $max)
 {
     $range = $max - $min;

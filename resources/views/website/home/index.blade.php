@@ -11,9 +11,11 @@
 
 
 @section('content')
+
     {{--  Hero  --}}
     <section id="home" class="mb-16">
-        <div class="hero min-h-screen" style="background-image: url({{ asset('storage/' . @$slider->image) }})">
+        <div class="hero min-h-screen"
+            style=" background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url({{ asset('storage/' . @$slider->image) }})">
             <div class="bg-opacity-60 bg-blur"></div>
             <div class="hero-content text-neutral-content text-center">
                 <div class="max-w-lg">
@@ -102,7 +104,7 @@
     {{--  Services  --}}
     <section id="services" class="md:mb-32 mb-16">
         <div
-            class="hero md:min-h-[70vh] min-h-[80vh] md:bg-[url({{ asset('static/website/images/service/image-services.png') }})] bg-[url({{ asset('static/website/images/service/image-services-mobile.webp') }})]">
+            class="hero md:min-h-[70vh] min-h-[80vh] md:bg-[url({{ asset(@$banner_lg) }})] bg-[url({{ asset(@$banner_sm) }})]">
         </div>
 
         <div class="lg:mx-40 mx-4 mt-9 lg:flex">
