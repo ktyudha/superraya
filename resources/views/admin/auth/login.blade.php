@@ -1,22 +1,26 @@
 @extends('admin.auth.layout')
 @section('content')
-    <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div class="rounded-sm border  border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div class="flex h-screen flex-wrap items-center">
             <div class="hidden w-full xl:block xl:w-1/2">
                 <div class="px-26 py-17.5 text-center">
-                    <a class="mb-5.5 inline-block" href="index.html">
-                        <img class="hidden dark:block" src="{{ asset('static/admin/images/logo/logo.svg') }}" alt="Logo" />
-                        <img class="dark:hidden" src="{{ asset('static/admin/images/logo/logo-dark.svg') }}"
-                            alt="Logo" />
+                    <a class="mb-5.5 inline-block" href="{{ route('landing.index') }}">
+                        <div class="flex">
+                            <img class="block w-26 h-26" src="{{ asset('static/website/images/logo_hbs.png') }}"
+                                alt="Logo" />
+                            <h2 class="ml-2 text-5xl my-auto font-bold">SUPERRAYA™</h2>
+                        </div>
+                        {{--  <img class="dark:hidden" src="{{ asset('static/admin/images/logo/logo-dark.svg') }}"
+                            alt="Logo" />  --}}
                     </a>
 
-                    <p class="font-medium 2xl:px-20">
+                    {{--  <p class="font-medium 2xl:px-20">
                         Official Website of Bengkel Super Raya Teknik
-                    </p>
+                    </p>  --}}
 
-                    <span class="mt-15 inline-block">
+                    {{--  <span class="mt-15 inline-block">
                         <img src="{{ asset('static/admin/images/illustration/illustration-03.svg') }}" alt="illustration" />
-                    </span>
+                    </span>  --}}
                 </div>
             </div>
             <div class="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
