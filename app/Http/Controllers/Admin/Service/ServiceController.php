@@ -57,7 +57,8 @@ class ServiceController extends Controller
             'description_short' => 'required',
             'type'            => 'required',
             'description'     => 'required',
-            'image'           => 'required|image|max:2048'
+            'image'           => 'required|image|max:2048',
+            'data.images' => 'required',
         ]);
 
         $path = $request->file('image')->store('services');

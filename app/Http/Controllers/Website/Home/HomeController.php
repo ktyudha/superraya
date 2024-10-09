@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Website\Home;
 
 use App\Models\Slider;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Models\Product\Product;
-use App\Http\Controllers\Controller;
 use App\Models\Service\Service;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -15,9 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data['slider'] = Slider::latest()->take(1)->first();
-        $data['products'] = Product::latest()->take(6)->get();
-        $data['services'] = Service::latest()->take(6)->get();
+        $data['slider']         = Slider::latest()->take(1)->first();
+        $data['products']       = Product::latest()->take(6)->get();
+        $data['services']       = Service::latest()->take(6)->get();
+        $data['banner_sm']      = @Setting::key(Setting::BANNER_SERVICE_SM)->first()->value;
+        $data['banner_lg']      = @Setting::key(Setting::BANNER_SERVICE_LG)->first()->value;
         // dd($data);
         return view('website.home.index', $data);
     }
