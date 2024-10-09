@@ -2,8 +2,8 @@ $(window).on("load", function () {
     let preloader = $(".preloader");
     if (preloader.length) {
         setTimeout(function () {
-            preloader.fadeOut(300); // Animasi fade out dimulai setelah 3 detik
-        }, 2000); // 3000 milidetik = 3 detik
+            preloader.fadeOut(100); // Animasi fade out dimulai setelah 3 detik
+        }, 1000); // 3000 milidetik = 3 detik
     }
 
     // thmTinyInit();

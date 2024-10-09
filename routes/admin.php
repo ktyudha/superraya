@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Product\ProductCategoryController;
+use App\Http\Controllers\Admin\Service\BannerServiceController;
 use App\Http\Controllers\Admin\SocialMedia\SocialMediaController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
@@ -69,6 +70,8 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
 
         // Service
         Route::resource('services', ServiceController::class);
+        Route::get('services-banner', [BannerServiceController::class, 'edit'])->name('services-banner.edit');
+        Route::put('services-banner', [BannerServiceController::class, 'update'])->name('services-banner.update');
 
         // Product
         Route::name('product.')->group(function () {

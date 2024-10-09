@@ -85,7 +85,31 @@
                 went on tour.</p>  --}}
 
             <div class="image md:mt-16 mt-8">
-                <div class="grid grid-cols-3 lg:gap-9 lg:mb-9 gap-4 mb-4 ">
+                @foreach (@$model->images as $value)
+                    @if ($value->type == 1)
+                        <div class="gap-4 mb-4">
+                            @foreach ($value->additional_value as $key => $image)
+                                <img src="{{ asset('storage/' . @$image) }}" class="w-full"
+                                    alt="{{ @$model->title . '-image-' . @$key }}">
+                            @endforeach
+                        </div>
+                    @elseif ($value->type == 3)
+                        <div class="grid grid-cols-3 gap-4 mb-4">
+                            @foreach ($value->additional_value as $key => $image)
+                                <img src="{{ asset('storage/' . @$image) }}" class="w-full"
+                                    alt="{{ @$model->title . '-image-' . @$key }}">
+                            @endforeach
+                        </div>
+                    @elseif ($value->type == 2)
+                        <div class="grid grid-cols-2  gap-4 mb-4">
+                            @foreach ($value->additional_value as $key => $image)
+                                <img src="{{ asset('storage/' . @$image) }}" class="w-full"
+                                    alt="{{ @$model->title . '-image-' . @$key }}">
+                            @endforeach
+                        </div>
+                    @endif
+                @endforeach
+                {{--  <div class="grid grid-cols-3 lg:gap-9 lg:mb-9 gap-4 mb-4 ">
                     <img src="{{ asset('static/website/images/service/service-1.png') }}" class="w-full" alt="">
                     <img src="{{ asset('static/website/images/service/service-2.png') }}" class="w-full" alt="">
                     <img src="{{ asset('static/website/images/service/service-3.png') }}" class="w-full" alt="">
@@ -94,7 +118,7 @@
                 <div class="grid grid-cols-2 lg:mb-9 gap-4 mb-4">
                     <img src="{{ asset('static/website/images/service/service-4.png') }}" class="w-full" alt="">
                     <img src="{{ asset('static/website/images/service/service-5.png') }}" class="w-full" alt="">
-                </div>
+                </div>  --}}
             </div>
         </div>
     </section>

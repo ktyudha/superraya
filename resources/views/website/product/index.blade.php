@@ -10,7 +10,6 @@
 
 @section('content')
 
-
     <div class="lg:flex min-h-screen mb-16">
         <div class="md:mt-20 mt-20 lg:ml-40 mx-4 lg:w-1/5">
             @include('website.product.partials.sidebar')
