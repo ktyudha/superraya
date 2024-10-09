@@ -17,7 +17,7 @@ class BannerServiceController extends Controller
         $this->middleware('permission:services delete')->only('destroy');
 
         // view()->share('menuActive', 'services');
-        view()->share('subMenuActive', 'banner-services');
+        view()->share('subMenuActive', 'services-banner');
     }
 
     public function edit()
