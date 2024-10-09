@@ -9,7 +9,7 @@ use App\Http\Controllers\Website\Product\ProductController;
 use App\Http\Controllers\Website\Service\ServiceController;
 
 
-if ($this->app->environment('production')) {
+if (app()->environment('production')) {
     \URL::forceScheme('https');
 }
 
