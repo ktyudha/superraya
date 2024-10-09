@@ -144,6 +144,13 @@
                                 <ul class="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
                                     @can('services read')
                                         <li>
+                                            <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'services-banner' ? '!text-white' : 'text-bodydark2' }}"
+                                                href="{{ route('admin.services-banner.edit') }}">Banner
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can('services read')
+                                        <li>
                                             <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white {{ $subMenuActive === 'services' ? '!text-white' : 'text-bodydark2' }}"
                                                 href="{{ route('admin.services.index') }}">Service
                                             </a>
